@@ -7,7 +7,11 @@ local cpppdpath = nTimes(4, rmlast, cpath) -- callee parent parent of parent dir
 --Mt. Moon Rock Climb
 --Cerulean Cave
 --Power Plant
---House of Memories - Pkemon Shaft
+--House of Memories/Pokemon Tower 7f - Pokemon Tower Shaft
+--Celadon City Inside
+--Fuchsia City Inside
+--Safari Zone
+--Saffron City Inside
 
 return function()
 
@@ -84,7 +88,25 @@ KantoMap["Route 10_C"] = {["Rock Tunnel_E"] = {1}, ["Lavender Town"] = {1}}
 KantoMap["Route 11"] = {["Route 12 Gate"] = {1}, ["Vermilion City"] = {1}}
 KantoMap["Route 12 Gate 2F"] = {["Route 12 Gate"] = {1}}
 KantoMap["Route 12 Gate"] = {["Route 12"] = {1}, ["Route 12 Gate 2F"] = {1}, ["Route 11"] = {1}}
-KantoMap["Route 12"] = {["Lavender Town Gate"] = {1}, ["Route 12 Gate"] = {1}}
+KantoMap["Route 12"] = {["Lavender Town Gate"] = {1}, ["Route 12 Gate"] = {1}, ["Route 12 House"] = {1}, ["Route 13"] = {1}}
+KantoMap["Route 13"] = {["Route 12"] = {1}, ["Route 14"] = {1}}
+KantoMap["Route 14"] = {["Route 13"] = {1}, ["Route 15"] = {1}}
+KantoMap["Route 15"] = {["Route 14"] = {1}, ["Fuchsia City Gate East"] = {1}}
+KantoMap["Fuchsia City Gate East"] = {["Route 15"] = {1}, ["Fuchsia City Gate East 2F"] = {1}, ["Fuchsia City"] = {1}}
+KantoMap["Fuchsia City Gate East 2F"] = {["Fuchsia City Gate East"] = {1}}
+KantoMap["Fuchsia City Gate West"] = {["Route 18_A"] = {1}, ["Route 18_B"] = {1}}
+KantoMap["Route 18_A"] = {["Fuchsia City Gate West"] = {1}, ["Fuchsia City"] = {1}}
+KantoMap["Fuchsia City"] = {["Safari Gate"] = {1}, ["Route 18_A"] = {1}, ["Fuchsia Gym"] = {1}, ["Fuchsia City Gate East"] = {1}, ["Fuchsia City Gate South"] = {1}, ["Fuchsia Pokémon Center"] = {1}}
+KantoMap["Fuchsia City Gate South"] = {["Fuchsia City"] = {1}}
+KantoMap["Safari Gate"] = {["Fuchsia City"] = {1}, ["Kanto Safari Zone"] = {1}}
+KantoMap["Fuchsia Gym"] = {["Fuchsia City"] = {1}}
+KantoMap["Fuchsia Pokémon Center"] = {["Fuchsia City"] = {1}}
+KantoMap["Kanto Safari Zone"] = {["Kanto Safari Zone - East"] = {1}}
+KantoMap["Kanto Safari Zone - East"] = {["Kanto Safari Zone"] = {1}, ["Kanto Safari Zone - North"] = {1}}
+KantoMap["Kanto Safari Zone - North"] = {["Kanto Safari Zone - East"] = {1}, ["Kanto Safari Zone - West"] = {1}}
+KantoMap["Kanto Safari Zone - West"] = {["Kanto Safari Zone - North"] = {1}, ["Secret House"] = {1}}
+KantoMap["Secret House"] = {["Kanto Safari Zone - West"] = {1}}
+KantoMap["Route 12 House"] = {["Route 12"] = {1}}
 KantoMap["Route 2 East House"] = {["Route 2 East"] = {1}}
 KantoMap["Route 2 East"] = {["Route 2_North East"] = {1}, ["Route 2 East House"] = {1}}
 KantoMap["Route 2_North East"] = {["Viridian Forest Gate_East"] = {.5}, ["Route 2 East"] = {1}, ["Diglett's Cave_C"] = {1}, ["Grannys House"] = {1}, ["Route 2_North West"] = {1, {["abilities"] = {"cut"}}}}
@@ -98,9 +120,16 @@ KantoMap["Route 3"] = {["Pewter City"] = {1}, ["Mt. Moon Pokémon Center"] = {1}
 KantoMap["Route 4_A"] = {["Mt. Moon B1F_D"] = {1}, ["Route 4_B"] = {1}}
 KantoMap["Route 4_B"] = {["Cerulean City"] = {1}}
 KantoMap["Route 5"] = {["Cerulean City"] = {1}, ["Underground Path_A"] = {1}, ["Saffron City Gate North"] = {1}, ["Cerulean Jail"] = {1}}
-KantoMap["Route 6"] = {["Vermilion City"] = {1}, ["Underground Path_C"] = {1}}
-KantoMap["Route 7"] = {["Underground Path_F"] = {1}, ["Celadon City"] = {1}}
-KantoMap["Celadon City"] = {["Route 7"] = {1}, ["Route 16_A"] = {1}, ["Celadon Pokémon Center"] = {1}, ["Celadon Game Corner"] = {1}}
+KantoMap["Route 6"] = {["Vermilion City"] = {1}, ["Underground Path_C"] = {1}, ["Saffron City Gate South"] = {1}}
+KantoMap["Route 7"] = {["Underground Path_F"] = {1}, ["Celadon City"] = {1}, ["Saffron City Gate West"] = {1}}
+KantoMap["Saffron City"] = {["Saffron Pokémon Center"] = {1}, ["Saffron City Gate West"] = {1}, ["Saffron City Gate North"] = {1}, ["Saffron City Gate East"] = {1}, ["Saffron City Gate South"] = {1}}
+KantoMap["Saffron Pokémon Center"] = {["Saffron City"] = {1}}
+KantoMap["Saffron City Gate West"] = {["Route 7"] = {1}, ["Saffron City"] = {1}}
+KantoMap["Saffron City Gate East"] = {["Route 8_A"] = {1}, ["Saffron City"] = {1}}
+KantoMap["Saffron City Gate North"] = {["Route 5"] = {1}, ["Saffron City"] = {1}}
+KantoMap["Saffron City Gate South"] = {["Route 6"] = {1}, ["Saffron City"] = {1}}
+KantoMap["Celadon City"] = {["Celadon Gym"] = {1}, ["Route 7"] = {1}, ["Route 16_A"] = {1}, ["Celadon Pokémon Center"] = {1}, ["Celadon Game Corner"] = {1}}
+KantoMap["Celadon Gym"] = {["Celadon City"] = {1}}
 KantoMap["Celadon Game Corner"] = {["Celadon City"] = {1}, ["Celadon Game Corner - Prize Room"] = {1}, ["Rocket Hideout B1F_A"] = {1}}
 KantoMap["Celadon Game Corner - Prize Room"] = {["Celadon Game Corner"] = {1}}
 KantoMap["Rocket Hideout B1F_A"] = {["Celadon Game Corner"] = {1}, ["Rocket Hideout B2F"] = {1}, ["Rocket Hideout B1F Elevator"] = {1}}
@@ -113,14 +142,23 @@ KantoMap["Rocket Hideout B4F_A"] = {["Rocket Hideout B3F"] = {1}}
 KantoMap["Rocket Hideout B4F_B"] = {["Rocket Hideout B4F Elevator"] = {1}}
 KantoMap["Rocket Hideout B4F Elevator"] = {["Rocket Hideout B4F_B"] = {1}, ["Rocket Hideout B1F Elevator"] = {1, {["items"] = {"Lift Key"}}}, ["Rocket Hideout B2F Elevator"] = {1, {["items"] = {"Lift Key"}}}}
 KantoMap["Celadon Pokémon Center"] = {["Celadon City"] = {1}}
-KantoMap["Route 16_A"] = {["Celadon City"] = {1}, ["Route 16_B"] = {1, {["abilities"] = {"cut"}}}}
+KantoMap["Route 16_A"] = {["Celadon City"] = {1}, ["Route 16 Gate"] = {1}, ["Route 16_B"] = {1, {["abilities"] = {"cut"}}}}
+KantoMap["Route 16 Gate"] = {["Route 16_A"] = {1}, ["Route 16 Gate 2F"] = {1}, ["Route 16_C"] = {1}}
+KantoMap["Route 16 Gate 2F"] = {["Route 16 Gate"] = {1}}
 KantoMap["Route 16_B"] = {["Route 16_A"] = {1}, ["Route 16 House"] = {1}}
+KantoMap["Route 16_C"] = {["Route 16 Gate"] = {1}, ["Route 17"] = {1}}
+KantoMap["Route 17"] = {["Route 16_C"] = {1}, ["Route 18_B"] = {1}}
+KantoMap["Route 18_B"] = {["Route 17"] = {1}, ["Fuchsia City Gate West"] = {1}}
 KantoMap["Route 16 House"] = {["Route 16_B"] = {1}}
-KantoMap["Route 8_A"] = {["Lavender Town"] = {1}, ["Underground Path_D"] = {1}, ["Route 8_B"] = {1, {["abilities"] = {"cut"}}}}
+KantoMap["Route 8_A"] = {["Saffron City Gate East"] = {1}, ["Lavender Town"] = {1}, ["Underground Path_D"] = {1}, ["Route 8_B"] = {1, {["abilities"] = {"cut"}}}}
 KantoMap["Route 8_B"] = {["Route 8_A"] = {1}}
 KantoMap["Route 9_A"] = {["Cerulean City"] = {1}, ["Route 9_B"] = {1, {["abilities"] = {"cut"}}}}
 KantoMap["Route 9_B"] = {["Route 9_A"] = {1}, ["Route 10_A"] = {1}, ["Route 10_B"] = {1, {["abilities"] = {"surf"}}}}
-KantoMap["Saffron City Gate North"] = {["Route 5"] = {1}}
+KantoMap["Saffron City Gate North"] = {["Route 5"] = {1}, ["Saffron City"] = {1}}
+KantoMap["Saffron City Gate East"] = {["Saffron City"] = {1}}
+KantoMap["Saffron City Gate South"] = {["Saffron City"] = {1}}
+KantoMap["Saffron City Gate West"] = {["Saffron City"] = {1}}
+KantoMap["Saffron City"] = {["Saffron City Gate North"] = {1}, ["Saffron City Gate East"] = {1}, ["Saffron City Gate South"] = {1}, ["Saffron City Gate West"] = {1}}
 KantoMap["Sea Cottage"] = {["Route 25"] = {1}}
 KantoMap["Tamara's House"] = {["Cerulean City"] = {1}}
 KantoMap["Trainers School B1F"] = {["Trainers School"] = {1}}

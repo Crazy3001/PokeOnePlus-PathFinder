@@ -10,12 +10,12 @@ local PokecenterList = require (cppdpath .. "Maps/Pokecenters/Pokecenters")
 
 -- move to closest PC
 local function moveToPC(map)
-    return pf.moveTo(map or getMapName(), PokecenterList)
+    return pf.moveTo(map or getAreaName(), PokecenterList)
 end
 
 -- move to closest PC and use the nurse
 local function useNearestPokecenter(map)
-    map = map or getMapName()
+    map = map or getAreaName()
     if pf.moveTo(map, PokecenterList) then
         return true
     end

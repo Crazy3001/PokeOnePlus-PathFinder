@@ -361,7 +361,8 @@ mapLink["Diglett's Cave_C"] = {
 	["Diglett's Cave_B"] = {{13, 88}}
 }
 mapLink["Route 11"] = {
-	["Vermilion City"] = {{174, 135, 174, 137}}
+	["Vermilion City"] = {{174, 135, 174, 137}},
+	["Route 12 Gate"] = {{258, 151, 258, 152}}
 }
 mapLink["S.S. Anne"] = {
 	["Vermilion City"] = {{110, 370}},
@@ -494,7 +495,8 @@ mapLink["Lavender Town"] = {
 	["Uncle Joe's House"] = {{107, 137}},
 	["Mr. Fuji's House"] = {{114, 137}},
 	["House of Memories"] = {{127, 138}},
-	["Pokémon Tower"] = {{126, 117}}
+	["Pokémon Tower"] = {{126, 117}},
+	["Lavender Town Gate"] = {{118, 160, 119, 160}}
 }
 mapLink["Lavender Pokémon Center"] = {
 	["Lavender Town"] = {{52, 25, 53, 25}},
@@ -523,7 +525,7 @@ mapLink["Pokémon Tower"] = {
 	["Pokémon Tower 2F"] = {{23, 14, 23, 16}}
 }
 mapLink["Pokémon Tower 2F"] = {
-	["Tower 1F"] = {{58, 16, 58, 17}},
+	["Pokémon Tower"] = {{58, 16, 58, 17}},
 	["Pokémon Tower 3F"] = {{74, 15, 74, 17}}
 }
 mapLink["Pokémon Tower 3F"] = {
@@ -545,14 +547,114 @@ mapLink["Pokémon Tower 6F"] = {
 mapLink["Pokémon Tower 7F"] = {
 	["Pokémon Tower 6F"] = {{120, 70, 120, 71}}
 }
-
+mapLink["Lavender Town Gate"] = {
+	["Lavender Town"] = {{13, 10}},
+	["Route 12"] = {{13, 23}}
+}
+mapLink["Route 12"] = {
+	["Lavender Town Gate"] = {{245, 25, 246, 25}},
+	["Route 12 Gate"] = {{247, 132, 247, 133}},
+	["Route 12 House"] = {{261, 149}},
+	["Route 13"] = {{267, 203, 269, 203}}
+}
+mapLink["Route 13"] = {
+	["Route 12"] = {{267, 202, 269, 202}},
+	["Route 14"] = {{135, 236, 137, 236}}
+}
+mapLink["Route 14"] = {
+	["Route 13"] = {{135, 235, 137, 235}},
+	["Route 15"] = {{114, 257, 114, 262}}
+}
+mapLink["Route 15"] = {
+	["Route 14"] = {{115, 257, 115, 262}},
+	["Fuchsia City Gate East"] = {{42, 263, 42, 264}}
+}
+mapLink["Fuchsia City Gate East"] = {
+	["Route 15"] = {{141, 77}},
+	["Fuchsia City Gate East 2F"] = {{141, 80, 141, 81}},
+	["Fuchsia City"] = {{128, 77}}
+}
+mapLink["Fuchsia City Gate East 2F"] = {
+	["Fuchsia City Gate East"] = {{46, 69, 46, 70}}
+}
+mapLink["Fuchsia City Gate West"] = {
+	["Route 18_A"] = {{16, 79}},
+	["Route 18_B"] = {{3, 79}}
+}
+mapLink["Route 18_A"] = {
+	["Fuchsia City"] = {{88, 81, 88, 84}},
+	["Fuchsia City Gate West"] = {{76, 81, 76, 82}}
+}
+mapLink["Route 18_B"] = {
+	["Fuchsia City Gate West"] = {{48, 198, 48, 199}},
+	["Route 17"] = {{34, 186, 35, 186}}
+}
+mapLink["Route 17"] = {
+	["Route 18_B"] = {{34, 187, 35, 187}},
+	["Route 16_C"] = {{29, 47, 45, 47}}
+}
+mapLink["Route 16_C"] = {
+	["Route 17"] = {{29, 48, 45, 48}},
+	["Route 16 Gate"] = {{66, 32, 66, 33}}
+}
+mapLink["Fuchsia City"] = {
+	["Route 18_A"] = {{87, 81, 87, 84}},
+	["Fuchsia City Gate East"] = {{163, 77, 163, 78}},
+	["Fuchsia City Gate South"] = {{108, 118, 109, 118}},
+	["Fuchsia Pokémon Center"] = {{115, 98}},
+	["Fuchsia Gym"] = {{97, 98}},
+	["Safari Gate"] = {{121, 51, 122, 51}}
+}
+mapLink["Safari Gate"] = {
+	["Fuchsia City"] = {{33, 24}},
+}
+mapLink["Fuchsia Gym"] = {
+	["Fuchsia City"] = {{9, 98}}
+}
+mapLink["Fuchsia City Gate South"] = {
+	["Fuchsia City"] = {{73, 134}}
+}
+mapLink["Fuchsia Pokémon Center"] = {
+	["Fuchsia City"] = {{101, 98, 102, 98}}
+}
+mapLink["Kanto Safari Zone"] = {
+	--["Safari Gate"] = {{}},
+	["Kanto Safari Zone - East"] = {{155, 112, 155, 113}}
+}
+mapLink["Kanto Safari Zone - East"] = {
+	["Kanto Safari Zone"] = {{154, 112, 154, 113}},
+	["Kanto Safari Zone - North"] = {{154, 68, 154, 69}}
+}
+mapLink["Kanto Safari Zone - North"] = {
+	["Kanto Safari Zone - East"] = {{155, 68, 155, 69}},
+	["Kanto Safari Zone - West"] = {{70, 72, 71, 72}}
+}
+mapLink["Kanto Safari Zone - West"] = {
+	["Kanto Safari Zone - North"] = {{70, 71, 71, 71}},
+	["Secret House"] = {{40, 74}}
+}
+mapLink["Secret House"] = {
+	["Kanto Safari Zone - West"] = {{10, 85}}
+}
+mapLink["Route 12 House"] = {
+	["Route 12"] = {{87, 76}}
+}
+mapLink["Route 12 Gate"] = {
+	["Route 12"] = {{18, 9}},
+	["Route 12 Gate 2F"] = {{18, 13, 18, 14}},
+	["Route 11"] = {{5, 9}}
+}
+mapLink["Route 12 Gate 2F"] = {
+	["Route 12 Gate"] = {{52, 45}}
+}
 mapLink["Route 8_A"] = {
 	["Route 8_B"] = {{70, 121, 70, 122}, {52, 126, 52, 127}},
 	["Lavender Town"] = {{103, 122, 103, 123}},
-	["Underground Path_D"] = {{26, 119}}
+	["Underground Path_D"] = {{26, 119}},
+	["Saffron City Gate East"] = {{11, 122, 11, 124}}
 }
 mapLink["Route 8_B"] = {
-	["Route 8_A"] = {{71, 121, 71, 122}, {51, 126, 51, 127}},
+	["Route 8_A"] = {{71, 121, 71, 122}, {51, 126, 51, 127}}
 }
 mapLink["Underground Path_D"] = {
 	["Route 8_A"] = {{111, 13}},
@@ -572,13 +674,18 @@ mapLink["Underground Path_G"] = {
 }
 mapLink["Route 7"] = {
 	["Celadon City"] = {{177, 85, 177, 89}},
-	["Underground Path_F"] = {{191, 106}}
+	["Underground Path_F"] = {{191, 106}},
+	["Saffron City Gate West"] = {{225, 89, 225, 92}},
 }
 mapLink["Celadon City"] = {
 	["Route 7"] = {{178, 85, 178, 89}},
 	["Route 16_A"] = {{100, 103, 100, 105}},
 	["Celadon Pokémon Center"] = {{165, 82}},
-	["Celadon Game Corner"] = {{147, 95}}
+	["Celadon Game Corner"] = {{147, 95}},
+	["Celadon Gym"] = {{122, 122}}
+}
+mapLink["Celadon Gym"] = {
+	["Celadon City"] = {{44, 53, 46, 53}}
 }
 mapLink["Celadon Game Corner"] = {
 	["Celadon City"] = {{128, 78}},
@@ -626,7 +733,8 @@ mapLink["Celadon Pokémon Center"] = {
 }
 mapLink["Route 16_A"] = {
 	["Celadon City"] = {{101, 103, 101, 105}},
-	["Route 16_B"] = {{85, 105}}
+	["Route 16_B"] = {{85, 105}},
+	["Route 16 Gate"] = {{66, 120, 66, 121}}
 }
 mapLink["Route 16_B"] = {
 	["Route 16_A"] = {{86, 105}},
@@ -634,5 +742,39 @@ mapLink["Route 16_B"] = {
 }
 mapLink["Route 16 House"] = {
 	["Route 16_B"] = {{35, 32}}
+}
+mapLink["Route 16 Gate"] = {
+	["Route 16_A"] = {{43, 80}},
+	["Route 16 Gate 2F"] = {{43, 84, 43, 85}},
+	["Route 16_C"] = {{30, 80}}
+}
+mapLink["Route 16 Gate 2F"] = {
+	["Route 16 Gate"] = {{58, 73}}
+}
+mapLink["Saffron City"] = {
+	["Saffron City Gate North"] = {{48, 13, 49, 13}},
+	["Saffron City Gate West"] = {{20, 62, 20, 64}},
+	["Saffron City Gate East"] = {{95, 62, 95, 64}},
+	["Saffron City Gate South"] = {{57, 88, 59, 88}},
+	["Saffron Pokémon Center"] = {{45, 73}}
+}
+mapLink["Saffron Pokémon Center"] = {
+	["Saffron City"] = {{15, 135, 16, 135}}
+}
+mapLink["Saffron City Gate North"] = {
+	["Route 5"] = {{62, 5}},
+	["Saffron City"] = {{62, 18}}
+}
+mapLink["Saffron City Gate East"] = {
+	["Route 8_A"] = {{92, 63}},
+	["Saffron City"] = {{79, 63}}
+}
+mapLink["Saffron City Gate South"] = {
+	["Route 6"] = {{63, 97}},
+	["Saffron City"] = {{63, 84}}
+}
+mapLink["Saffron City Gate West"] = {
+	["Route 7"] = {{3, 26}},
+	["Saffron City"] = {{16, 26}}	
 }
 return mapLink

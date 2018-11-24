@@ -225,6 +225,7 @@ return {
 	["Celadon Pokémon Center"] = {{6, 57, 17, 84}},
 	["Celadon Game Corner"] = {{118, 65, 136, 78}},
 	["Celadon Game Corner - Prize Room"] = {{84, 71, 92, 77}},
+	["Celadon Gym"] = {{37, 10, 53, 53}}
 },
 ["kanto_i_celadon_hideout"] = {
 	["Rocket Hideout B1F_A"] = {{3, 5, 30, 26}, {22, 27, 29, 38}},
@@ -240,25 +241,69 @@ return {
 ["kanto_i_16"] = {
 	["Route 16 House"] = {{34, 25, 49, 32}}
 },
+["kanto_i_16_gates"] = {
+	["Route 16 Gate"] = {{30, 74, 43, 86}},
+	["Route 16 Gate 2F"] = {{50, 66, 60, 74}}
+},
 ["kanto_i_lavender_gate"] = {
-	["Lavender Town Gate"] = {{}}
+	["Lavender Town Gate"] = {{9, 10, 17, 23}}
 },
-
+["kanto_e_route_16_17_18"] = {
+	["Route 16_C"] = {{27, 27, 66, 47}},
+	["Route 17"] = {{27, 48, 46, 186}},
+	["Route 18_B"] = {{28, 187, 48, 203}}
+},
 ["kanto_e_12_13_14_15"] = {
-	["Route 12"] = {{}},
-	
+	["Route 12"] = {{240, 24, 282, 202}},
+	["Route 13"] = {{133, 203, 279, 235}},
+	["Route 14"] = {{115, 236, 145, 264}},
+	["Route 15"] = {{42, 254, 114, 268}}
 },
-
+["kanto_i_fuchsia_gates"] = {
+	["Fuchsia City Gate East"] = {{128, 73, 141, 82}},
+	["Fuchsia City Gate West"] = {{3, 75, 16, 84}},
+	["Fuchsia City Gate South"] = {{69, 134, 77, 147}},
+	["Safari Gate"] = {{29, 11, 37, 24}}
+},
+["kanto_i_fuchsia_gates_2f"] = {
+	["Fuchsia City Gate East 2F"] = {{38, 63, 48, 72}}
+},
+["kanto_i_fuchsia"] = {
+	["Fuchsia Gym"] = {{3, 73, 15, 98}},
+	["Fuchsia Pokémon Center"] = {{96, 77, 107, 98}}
+},
 ["kanto_i_12_gates"] = {
-	["Route 12 Gate"] = {{}}
+	["Route 12 Gate"] = {{5, 3, 18, 16}}
 },
 
 ["kanto_i_12"] = {
-	["Route 12 Gate 2F"] = {{}}
+	["Route 12 Gate 2F"] = {{43, 38, 54, 47}},
+	["Route 12 House"] = {{83, 70, 91, 76}}
 },
-
+["kanto_e_fuchsia_18"] = {
+	["Fuchsia City"] = {{88, 51, 163, 120}},
+	["Route 18_A"] = {{68, 78, 87, 93}}
+},
+["kanto_e_safarizone"] = {
+	["Kanto Safari Zone"] = {{91, 72, 154, 150}},
+	["Kanto Safari Zone - East"] = {{155, 49, 217, 124}},
+	["Kanto Safari Zone - North"] = {{66, 7, 154, 71}},
+	["Kanto Safari Zone - West"] = {{31, 72, 90, 126}}
+},
+["kanto_i_safarizone"] = {
+	["Secret House"] = {{4, 77, 15, 85}}
+}, 
+["kanto_e_saffron"] = {
+	["Saffron City"] = {{0, 0, 115, 108}}
+},
 ["kanto_i_saffron_gates"] = {
-	["Saffron City Gate North"] = {{}},
+	["Saffron City Gate North"] = {{58, 5, 66, 18}},
+	["Saffron City Gate West"] = {{3, 21, 16, 31}},
+	["Saffron City Gate East"] = {{79, 59, 92, 69}},
+	["Saffron City Gate South"] = {{59, 84, 67, 97}}
+},
+["kanto_i_saffron"] = {
+	["Saffron Pokémon Center"] = {{10, 106, 21, 135}}
 },
 
 --    ["Map Name"] = {

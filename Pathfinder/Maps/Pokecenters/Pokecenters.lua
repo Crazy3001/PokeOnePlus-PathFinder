@@ -7,7 +7,9 @@ local Pokecenters = {
 	"Rock Tunnel Pokémon Center",
 	"Lavender Pokémon Center",
 	"Vermilion Pokémon Center",
-	"Celadon Pokémon Center"
+	"Celadon Pokémon Center",
+	"Fuchsia Pokémon Center",
+	"Saffron Pokémon Center"
 }
 
 return Pokecenters

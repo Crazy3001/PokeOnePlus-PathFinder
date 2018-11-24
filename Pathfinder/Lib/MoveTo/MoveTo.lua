@@ -17,7 +17,7 @@ local _npcExceptions      = require (cppdpath .. "Maps/MapExceptions/NpcExceptio
 local dialogSolver        = require (cppdpath .. "Lib/MoveTo/DialogSolver")
 local elevatorExceptions  = require (cppdpath .. "Maps/MapExceptions/Elevators")
 local moveAbilities       = {["cut"] = 0, ["surf"] = 0, ["dig"] = 155, ["rock smash"] = 0, ["dive"] = 155}
-local moveItems           = {"Lift Key", "Silph Scope"}
+local moveItems           = {"Lift Key", "Silph Scope", "Bicycle"}
 local globalMap           = {}
 local pathSolution        = {}
 local settings            = {}
@@ -175,11 +175,11 @@ local function mapsToNodes(mapList)
         mapList = {mapList}
     end
     for _, map in pairs(mapList) do
-        if mapAreas[map] then  -- if the map has sub maps
+        if mapAreas[map] then
             for mapArea, _ in pairs(mapAreas[map]) do
                 table.insert(nodeList, mapArea)
             end
-		elseif subMaps[map] then
+		elseif subMaps[map] then -- if the map has sub maps
 			for submap, _ in pairs(subMaps[map]) do
 				table.insert(nodeList, submap)
 			end
@@ -315,7 +315,10 @@ local function moveTo(map, dest)
 	end
 	playerNode = getPlayerNode(map)
 	dest = mapsToNodes(dest)
-	if destStore == table.concat(dest, " | ") then
+	if not isMounted() and not isSurfing() and isOutside() then
+		assert(useEquippedMount(), "Error using Mount.")
+		return true
+	elseif destStore == table.concat(dest, " | ") then
 		return moveWithCalcPath()
 	else
 		settings.abilitiesIndex = validateAbilitiesIndex(settings.abilitiesIndex, moveAbilities)
