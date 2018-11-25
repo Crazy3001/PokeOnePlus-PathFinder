@@ -177,13 +177,9 @@ KantoMap["S.S. Anne Room 7"] = {["S.S. Anne"] = {1}}
 KantoMap["S.S. Anne"] = {["Vermilion City"] = {1}, ["S.S. Anne 2F"] = {1}, ["S.S. Anne Kitchen"] = {1} ,["S.S. Anne B1F"] = {1}, ["S.S. Anne Room 1"] = {1}, ["S.S. Anne Room 2"] = {1}, ["S.S. Anne Room 3"] = {1}, ["S.S. Anne Room 4"] = {1}, ["S.S. Anne Room 5"] = {1}, ["S.S. Anne Room 6"] = {1}, ["S.S. Anne Room 7"] = {1}}
 KantoMap["Safari Gate"] = {["Fuchsia City"] = {1}, ["Kanto Safari Zone"] = {1}}
 KantoMap["Saffron City Gate East"] = {["Route 8_A"] = {1}, ["Saffron City"] = {1}}
-KantoMap["Saffron City Gate East"] = {["Saffron City"] = {1}}
-KantoMap["Saffron City Gate North"] = {["Route 5"] = {1}, ["Saffron City"] = {1}}
 KantoMap["Saffron City Gate North"] = {["Route 5"] = {1}, ["Saffron City"] = {1}}
 KantoMap["Saffron City Gate South"] = {["Route 6"] = {1}, ["Saffron City"] = {1}}
-KantoMap["Saffron City Gate South"] = {["Saffron City"] = {1}}
 KantoMap["Saffron City Gate West"] = {["Route 7"] = {1}, ["Saffron City"] = {1}}
-KantoMap["Saffron City Gate West"] = {["Saffron City"] = {1}}
 KantoMap["Saffron City"] = {["Saffron Pokémon Center"] = {1}, ["Saffron Fighting Dojo"] = {1}, ["Saffron Gym_H"] = {1}, ["Saffron City Gate North"] = {1}, ["Saffron City Gate East"] = {1}, ["Saffron City Gate South"] = {1}, ["Saffron City Gate West"] = {1}}
 KantoMap["Saffron Fighting Dojo"] = {["Saffron City"] = {1}}
 KantoMap["Saffron Gym 2F"] = {["Saffron Gym_E"] = {1}, ["Saffron Gym_H"] = {1}}
