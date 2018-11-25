@@ -1,6 +1,9 @@
 ﻿local mapLink = {}
 
---PALLET/VIRIDIAN/1/2/21/22
+---------------------------------------------------------------------
+------------------------------- KANTO -------------------------------
+---------------------------------------------------------------------
+
 mapLink["Pallet Town"] = {["Route 1"] = {{151, 172, 153, 172}}, ["Player House"] = {{145, 184}}, ["Oak's House"] = {{157, 183}}, ["Oak's Lab"] = {{158, 192}}}
 mapLink["Player House"] = {["Pallet Town"] = {{12, 13, 13, 13}}, ["Player House 2F"] = {{19, 6, 19, 7}}}
 mapLink["Player House 2F"] = {["Player House"] = {{73, 7, 73, 7}}}
@@ -8,165 +11,44 @@ mapLink["Oak's House"] = {["Pallet Town"] = {{12, 60}}, ["Oak's House 2F"] = {{7
 mapLink["Oak's House 2F"] = {["Oak's House"] = {{65, 52, 65, 53}}}
 mapLink["Oak's Lab"] = {["Pallet Town"] = {{22, 108}}}
 mapLink["Route 1"] = {["Pallet Town"] = {{151, 173, 153, 173}}, ["Viridian City"] = {{148, 103, 150, 103}}}
-mapLink["Viridian City"] = {
-	["Route 1"] = {{148, 104, 150, 104}},
-	["Viridian Pokémon Center"] = {{146, 91}},
-	["Emmy's House"] = {{148, 81}},
-	["Viridian Pokémon Mart"] = {{156, 81}},
-	["Trainers School"] = {{148, 72}},
-	["Viridian Gym"] = {{159, 68}},
-	["Route 22"] = {{104, 87, 104, 89}},
-	["Route 2_South West"] = {{138, 50, 141, 50}}
-}
-mapLink["Viridian Pokémon Center"] = {
-	["Viridian City"] = {{9, 129}}
-}
-mapLink["Viridian Pokémon Mart"] = {
-	["Viridian City"] = {{13, 78}}
-}
-mapLink["Emmy's House"] = {
-	["Viridian City"] = {{117, 79}}
-}
-mapLink["Trainers School B1F"] = {
-	["Trainers School"] = {{65, 8, 65, 9}}
-}
-mapLink["Trainers School"] = {
-	["Viridian City"] = {{14, 21}},
-	["Trainers School B1F"] = {{18, 8, 18, 9}}
-}
-mapLink["Viridian Gym"] = {
-	["Viridian City"] = {{144, 24}},
-	["Viridian Gym 2F"] = {{129, 2}},
-}
-mapLink["Viridian Gym 2F"] = {
-	["Viridian Gym"] = {{171, 99}},
-}
-mapLink["Route 22"] = {
-	["Viridian City"] = {{105, 87, 105, 89}},
-	["Pokémon League Reception"] = {{39, 87, 39, 89}}
-}
-mapLink["Pokémon League Reception"] = {
-	["Route 22"] = {{43, 22}},
-}
-mapLink["Route 2_South West"] = {
-	["Viridian City"] = {{138, 51, 141, 51}},
-	["Viridian Forest Gate_South"] = {{146, 19, 148, 19}},
-	["Route 2_South East"] = {{153, 30, 153, 30}, {153, 41, 153, 41}}
-}
-mapLink["Route 2_South East"] = {
-	["Route 2_South West"] = {{152, 30, 152, 30}, {152, 41, 152, 41}},
-	["Viridian Forest Gate_East"] = {{162, 16, 163, 16}}
-}
---VIRIDIAN GATES
-mapLink["Viridian Forest Gate_South"] = {
-	["Route 2_South West"] = {{8, 49}},
-	["Viridian Forest"] = {{8, 36}}
-}
-mapLink["Viridian Forest Gate_East"] = {
-	["Route 2_South East"] = {{51, 49}},
-	["Route 2_North East"] = {{51, 36}},
-}
-mapLink["Viridian Forest Gate_North"] = {
-	["Route 2_North West"] = {{8, 3}},
-	["Viridian Forest"] = {{8, 16}}
-}
---VIRIDIAN FOREST
-mapLink["Viridian Forest"] = {
-	["Viridian Forest Gate_South"] = {{38, 86, 40, 86}},
-	["Viridian Forest Gate_North"] = {{11, 16, 12, 16}},
-}
---PEWTER/2/3
-mapLink["Route 2_North East"] = {
-	["Viridian Forest Gate_East"] = {{31, 143, 32, 143}},
-	["Diglett's Cave_C"] = {{34, 92}},
-	["Grannys House"] = {{29, 113}},
-	["Route 2 East"] = {{46, 100, 46, 101}},
-	["Route 2_North West"] = {{20, 86, 21, 86}}
-}
-mapLink["Route 2_North West"] = {
-	["Viridian Forest Gate_North"] = {{7, 91, 9, 91}},
-	["Route 2_North East"] = {{20, 87, 21, 87}},
-	["Pewter City"] = {{20, 61, 21, 61}}
-}
-mapLink["Grannys House"] = {
-	["Route 2_North East"] = {{85, 66}},
-}
-mapLink["Route 2 East"] = {
-	["Route 2_North East"] = {{45, 100, 45, 101}, {46, 131, 46, 131}},
-	["Route 2 East House"] = {{73, 83}}
-}
-mapLink["Route 2 East House"] = {
-	["Route 2 East"] = {{131, 72}}
-}
-mapLink["Pewter City"] = {
-	["Pewter Pokémon Center"] = {{35, 48}},
-	["Pewter Pokémon Mart"] = {{52, 39}},
-	["Babsis House"] = {{54, 25}},
-	["Pewter Gym"] = {{30, 26}},
-	["Pewter City Museum"] = {{30, 11}},
-	["Daves House"] = {{21, 54}},
-	["Route 2_North West"] = {{20, 62, 21, 62}},
-	["Route 3"] = {{86, 45, 86, 49}}
-}
-mapLink["Daves House"] = {
-	["Pewter City"] = {{72, 17}}
-}
-mapLink["Pewter Pokémon Center"] = {
-	["Pewter City"] = {{68, 117, 69, 117}}
-}
-mapLink["Pewter Pokémon Mart"] = {
-	["Pewter City"] = {{14, 22, 15, 22}}
-}
-mapLink["Babsis House"] = {
-	["Pewter City"] = {{119, 23, 120, 23}}
-}
-mapLink["Pewter City Museum"] = {
-	["Pewter City"] = {{12, 60}}
-}
-mapLink["Pewter Gym"] = {
-	["Pewter City"] = {{15, 116}}
-}
-mapLink["Route 3"] = {
-	["Pewter City"] = {{85, 45, 85, 49}},
-	["Mt. Moon Pokémon Center"] = {{178, 48}},
-	["Mt. Moon"] = {{188, 47}}
-}
-mapLink["Mt. Moon Pokémon Center"] = {
-	["Route 3"] = {{9, 25, 10, 25}}
-}
---MT MOON
-mapLink["Mt. Moon"] = {
-	["Route 3"] = {{105, 49}},
-	["Mt. Moon B1F_A"] = {{118, 27}},
-	["Mt. Moon B1F_B"] = {{107, 25}},
-	["Mt. Moon B1F_C"] = {{95, 16}}
-}
-mapLink["Mt. Moon B1F_A"] = {
-	["Mt. Moon"] = {{90, 169}},
-	["Mt. Moon B2F_A"] = {{73, 184}}
-}
-mapLink["Mt. Moon B2F_A"] = {
-	["Mt. Moon B1F_A"] = {{27, 97}}
-}
-mapLink["Mt. Moon B1F_B"] = {
-	["Mt. Moon"] = {{61, 132}},
-	["Mt. Moon B2F_B"] = {{51, 136}}
-}
-mapLink["Mt. Moon B2F_B"] = {
-	["Mt. Moon B1F_B"] = {{39, 74}}
-}
-mapLink["Mt. Moon B1F_C"] = {
-	["Mt. Moon"] = {{6, 130}},
-	["Mt. Moon B2F_C"] = {{21, 145}}
-}
-mapLink["Mt. Moon B2F_C"] = {
-	["Mt. Moon B1F_C"] = {{35, 86}},
-	["Mt. Moon B1F_D"] = {{11, 75}}
-}
-mapLink["Mt. Moon B1F_D"] = {
-	["Mt. Moon B2F_C"] = {{26, 213}},
-	["Route 4_A"] = {{36, 219}}
-}
+mapLink["Viridian City"] = {["Route 1"] = {{148, 104, 150, 104}}, ["Viridian Pokémon Center"] = {{146, 91}}, ["Emmy's House"] = {{148, 81}}, ["Viridian Pokémon Mart"] = {{156, 81}}, ["Trainers School"] = {{148, 72}}, ["Viridian Gym"] = {{159, 68}}, ["Route 22"] = {{104, 87, 104, 89}}, ["Route 2_South West"] = {{138, 50, 141, 50}}}
+mapLink["Viridian Pokémon Center"] = {["Viridian City"] = {{9, 129}}}
+mapLink["Viridian Pokémon Mart"] = {["Viridian City"] = {{13, 78}}}
+mapLink["Emmy's House"] = {["Viridian City"] = {{117, 79}}}
+mapLink["Trainers School B1F"] = {["Trainers School"] = {{65, 8, 65, 9}}}
+mapLink["Trainers School"] = {["Viridian City"] = {{14, 21}}, ["Trainers School B1F"] = {{18, 8, 18, 9}}}
+mapLink["Viridian Gym"] = {["Viridian City"] = {{144, 24}}, ["Viridian Gym 2F"] = {{129, 2}}}
+mapLink["Viridian Gym 2F"] = {["Viridian Gym"] = {{171, 99}}}
+mapLink["Route 22"] = {["Viridian City"] = {{105, 87, 105, 89}}, ["Pokémon League Reception"] = {{39, 87, 39, 89}}}
+mapLink["Pokémon League Reception"] = {["Route 22"] = {{43, 22}}}
+mapLink["Route 2_South West"] = {["Viridian City"] = {{138, 51, 141, 51}}, ["Viridian Forest Gate_South"] = {{146, 19, 148, 19}}, ["Route 2_South East"] = {{153, 30, 153, 30}, {153, 41, 153, 41}}}
+mapLink["Route 2_South East"] = {["Route 2_South West"] = {{152, 30, 152, 30}, {152, 41, 152, 41}}, ["Viridian Forest Gate_East"] = {{162, 16, 163, 16}}}
+mapLink["Viridian Forest Gate_South"] = {["Route 2_South West"] = {{8, 49}}, ["Viridian Forest"] = {{8, 36}}}
+mapLink["Viridian Forest Gate_East"] = {["Route 2_South East"] = {{51, 49}}, ["Route 2_North East"] = {{51, 36}}}
+mapLink["Viridian Forest Gate_North"] = {["Route 2_North West"] = {{8, 3}}, ["Viridian Forest"] = {{8, 16}}}
+mapLink["Viridian Forest"] = {["Viridian Forest Gate_South"] = {{38, 86, 40, 86}}, ["Viridian Forest Gate_North"] = {{11, 16, 12, 16}}}
+mapLink["Route 2_North East"] = {["Viridian Forest Gate_East"] = {{31, 143, 32, 143}}, ["Diglett's Cave_C"] = {{34, 92}}, ["Grannys House"] = {{29, 113}}, ["Route 2 East"] = {{46, 100, 46, 101}}, ["Route 2_North West"] = {{20, 86, 21, 86}}}
+mapLink["Route 2_North West"] = {["Viridian Forest Gate_North"] = {{7, 91, 9, 91}}, ["Route 2_North East"] = {{20, 87, 21, 87}}, ["Pewter City"] = {{20, 61, 21, 61}}}
+mapLink["Grannys House"] = {["Route 2_North East"] = {{85, 66}}}
+mapLink["Route 2 East"] = {["Route 2_North East"] = {{45, 100, 45, 101}, {46, 131, 46, 131}}, ["Route 2 East House"] = {{73, 83}}}
+mapLink["Route 2 East House"] = {["Route 2 East"] = {{131, 72}}}
+mapLink["Pewter City"] = {["Pewter Pokémon Center"] = {{35, 48}}, ["Pewter Pokémon Mart"] = {{52, 39}}, ["Babsis House"] = {{54, 25}}, ["Pewter Gym"] = {{30, 26}}, ["Pewter City Museum"] = {{30, 11}}, ["Daves House"] = {{21, 54}}, ["Route 2_North West"] = {{20, 62, 21, 62}}, ["Route 3"] = {{86, 45, 86, 49}}}
+mapLink["Daves House"] = {["Pewter City"] = {{72, 17}}}
+mapLink["Pewter Pokémon Center"] = {["Pewter City"] = {{68, 117, 69, 117}}}
+mapLink["Pewter Pokémon Mart"] = {["Pewter City"] = {{14, 22, 15, 22}}}
+mapLink["Babsis House"] = {["Pewter City"] = {{119, 23, 120, 23}}}
+mapLink["Pewter City Museum"] = {["Pewter City"] = {{12, 60}}}
+mapLink["Pewter Gym"] = {["Pewter City"] = {{15, 116}}}
+mapLink["Route 3"] = {["Pewter City"] = {{85, 45, 85, 49}}, ["Mt. Moon Pokémon Center"] = {{178, 48}}, ["Mt. Moon"] = {{188, 47}}}
+mapLink["Mt. Moon Pokémon Center"] = {["Route 3"] = {{9, 25, 10, 25}}}
+mapLink["Mt. Moon"] = {["Route 3"] = {{105, 49}}, ["Mt. Moon B1F_A"] = {{118, 27}}, ["Mt. Moon B1F_B"] = {{107, 25}}, ["Mt. Moon B1F_C"] = {{95, 16}}}
+mapLink["Mt. Moon B1F_A"] = {["Mt. Moon"] = {{90, 169}}, ["Mt. Moon B2F_A"] = {{73, 184}}}
+mapLink["Mt. Moon B2F_A"] = {["Mt. Moon B1F_A"] = {{27, 97}}}
+mapLink["Mt. Moon B1F_B"] = {["Mt. Moon"] = {{61, 132}}, ["Mt. Moon B2F_B"] = {{51, 136}}}
+mapLink["Mt. Moon B2F_B"] = {["Mt. Moon B1F_B"] = {{39, 74}}}
+mapLink["Mt. Moon B1F_C"] = {["Mt. Moon"] = {{6, 130}}, ["Mt. Moon B2F_C"] = {{21, 145}}}
+mapLink["Mt. Moon B2F_C"] = {["Mt. Moon B1F_C"] = {{35, 86}}, ["Mt. Moon B1F_D"] = {{11, 75}}}
+mapLink["Mt. Moon B1F_D"] = {["Mt. Moon B2F_C"] = {{26, 213}}, ["Route 4_A"] = {{36, 219}}}
 --CERULEAN/4/5/9/10/24/25
 mapLink["Route 4_A"] = {
 	["Mt. Moon B1F_D"] = {{27, 83}},
@@ -756,7 +638,9 @@ mapLink["Saffron City"] = {
 	["Saffron City Gate West"] = {{20, 62, 20, 64}},
 	["Saffron City Gate East"] = {{95, 62, 95, 64}},
 	["Saffron City Gate South"] = {{57, 88, 59, 88}},
-	["Saffron Pokémon Center"] = {{45, 73}}
+	["Saffron Pokémon Center"] = {{45, 73}},
+	["Saffron Fighting Dojo"] = {{69, 23}},
+	["Saffron Gym_H"] = {{83, 24}}
 }
 mapLink["Saffron Pokémon Center"] = {
 	["Saffron City"] = {{15, 135, 16, 135}}
@@ -776,5 +660,62 @@ mapLink["Saffron City Gate South"] = {
 mapLink["Saffron City Gate West"] = {
 	["Route 7"] = {{3, 26}},
 	["Saffron City"] = {{16, 26}}	
+}
+mapLink["Saffron Gym_A"] = {
+	["Saffron Gym_C"] = {{138, 4}},
+	["Saffron Gym_D"] = {{143, 7}},
+	["Saffron Gym_B"] = {{143, 4}},
+	["Saffron Gym_E"] = {{138, 7}},
+}
+mapLink["Saffron Gym_B"] = {
+	["Saffron Gym_F"] = {{147, 4}},
+	["Saffron Gym_G"] = {{152, 7}},
+	["Saffron Gym_D"] = {{147, 7}},
+	["Saffron Gym_A"] = {{152, 4}},
+}
+mapLink["Saffron Gym_C"] = {
+	["Saffron Gym_I"] = {{161, 4}},
+	["Saffron Gym_F"] = {{156, 4}},
+	["Saffron Gym_A"] = {{156, 7}},
+	["Saffron Gym_G"] = {{161, 7}},
+}
+mapLink["Saffron Gym_D"] = {
+	["Saffron Gym_F"] = {{138, 11}},
+	["Saffron Gym_G"] = {{143, 14}},
+	["Saffron Gym_B"] = {{143, 11}},
+	["Saffron Gym_A"] = {{138, 14}},
+}
+mapLink["Saffron Gym_E"] = {
+	["Saffron Gym_A"] = {{152, 12}},
+	["Saffron Gym 2F"] = {{147, 13}},
+}
+mapLink["Saffron Gym_F"] = {
+	["Saffron Gym_I"] = {{161, 11}},
+	["Saffron Gym_D"] = {{161, 14}},
+	["Saffron Gym_B"] = {{156, 14}},
+	["Saffron Gym_C"] = {{156, 11}},
+}
+mapLink["Saffron Gym_G"] = {
+	["Saffron Gym_I"] = {{143, 18}},
+	["Saffron Gym_C"] = {{138, 18}},
+	["Saffron Gym_B"] = {{138, 21}},
+	["Saffron Gym_D"] = {{143, 21}},
+}
+mapLink["Saffron Gym_H"] = {
+	["Saffron Gym_I"] = {{152, 18}},
+	["Saffron City"] = {{149, 24, 150, 24}},
+}
+mapLink["Saffron Gym_I"] = {
+	["Saffron Gym_H"] = {{161, 21}},
+	["Saffron Gym_G"] = {{156, 21}},
+	["Saffron Gym_F"] = {{161, 18}},
+	["Saffron Gym_C"] = {{156, 18}},
+}
+mapLink["Saffron Gym 2F"] = {
+	["Saffron Gym_E"] = {{151, 57}},
+	["Saffron Gym_H"] = {{155, 56}},
+}
+mapLink["Saffron Fighting Dojo"] = {
+	["Saffron City"] = {{104, 20}}
 }
 return mapLink

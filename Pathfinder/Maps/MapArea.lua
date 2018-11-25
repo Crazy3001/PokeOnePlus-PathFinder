@@ -303,9 +303,22 @@ return {
 	["Saffron City Gate South"] = {{59, 84, 67, 97}}
 },
 ["kanto_i_saffron"] = {
-	["Saffron Pokémon Center"] = {{10, 106, 21, 135}}
+	["Saffron Pokémon Center"] = {{10, 106, 21, 135}},
+	["Saffron Gym_A"] = {{137, 3, 144, 8}},
+	["Saffron Gym_B"] = {{146, 3, 153, 8}},
+	["Saffron Gym_C"] = {{155, 3, 162, 8}},
+	["Saffron Gym_D"] = {{137, 10, 144, 15}},
+	["Saffron Gym_E"] = {{146, 10, 153, 15}},
+	["Saffron Gym_F"] = {{155, 10, 162, 15}},
+	["Saffron Gym_G"] = {{137, 17, 144, 22}},
+	["Saffron Gym_H"] = {{146, 17, 153, 24}},
+	["Saffron Gym_I"] = {{155, 17, 162, 22}},
+	["Saffron Gym 2F"] = {{150, 51, 156, 58}},
+	["Saffron Fighting Dojo"] = {{98, 3, 110, 20}}
 },
+["kanto_i_saffron_silphco"] = {
 
+},
 --    ["Map Name"] = {
 --        ["SubArea"] = {{minX, minY, maxX, maxY}},
 --        ["SubArea2"] = {{minX, minY, maxX, maxY}},

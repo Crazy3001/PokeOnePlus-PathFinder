@@ -15,6 +15,7 @@ local map = nil -- we want to only call getMapName() on time per onPathAction() 
 moveTo(map, dest) --> Main function for moving to dest. return false when done. true if destination is not reached. Need to be called multiple times. dest can be a string or a list of string. map is the current player map
 moveToPC(map)   --> Move to nearest Pokecenter.
 useNearestPokecenter(map) --> Go heal your team to the nearest Pokecenter.
+moveToMapCell() --> 
 
 if you need more details see HOWTO and README
 ------------------]]
@@ -22,8 +23,8 @@ if you need more details see HOWTO and README
 function onPathAction()
     map = getAreaName() -- get the map name
 		--log(getMapName())
-		--pf.moveTo(map, "Saffron City Gate West")
-		pf.useNearestPokecenter(map)
+		pf.moveTo(map, "Saffron City")
+		--pf.useNearestPokecenter(map)
 		--moveToArea("Player House 2F")
 		--moveToCell(23, 16)
 end
