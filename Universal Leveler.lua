@@ -1,4 +1,4 @@
-name = "Universal Leveler"
+name = "Universal Leveler - Version 1.0"
 author = "Crazy3001"
 
 				--#################################################--
@@ -34,10 +34,10 @@ local catchThesePokemon = {""}
 local evadeThesePokemon = {""}
 	
 --Will level your pokemon to this level then stop. Put 101 if EV Training or if you want level 100 Pokemon to fight.--
-local levelPokesTo = 50
+local levelPokesTo = 60
 
 --What level you want your pokemon to start fight instead of switching out.
-local minLevel = 30
+local minLevel = 25
 
 --The percentage of your last alive usable poke's health that we'll stop fighting at and go to pokecenter--
 local healthToRunAt = 30 
@@ -371,7 +371,7 @@ end
 function onBattleAction()
 	if isWildBattle() and isOpponentShiny() or isOnList(catchThesePokemon) or (catchNotCaught and not isAlreadyCaught()) then
 		if isPokemonUsable(getActivePokemonNumber()) then
-			if useItem("Ultra Ball") or useItem("Great Ball") or useItem("Pokeball") then
+			if useItem("Ultra Ball") or useItem("Great Ball") or useItem("Poké Ball") then
 				return
 			end
 		else

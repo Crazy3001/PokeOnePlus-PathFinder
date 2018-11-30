@@ -4,6 +4,8 @@ local function rmlast(str) return str:sub(1, -2):match(".+[%./]") or "" end -- r
 local cppdpath = nTimes(3, rmlast, cpath) -- callee parent of parent dir path
 local cpppdpath = rmlast(cppdpath) -- callee parent parent of parent dir path
 
+local version = "1.0.0"
+
 local aStar               = require (cppdpath .. "Lib/lua-astar/AStar")
 local Lib                 = require (cppdpath .. "Lib/Lib")
 local Game                = require (cppdpath .. "Lib/Game")
@@ -15,6 +17,7 @@ local subMaps             = require (cppdpath .. "Maps/MapExceptions/SubstituteM
 local linkExceptions      = require (cppdpath .. "Maps/MapExceptions/LinkExceptions")
 local _npcExceptions      = require (cppdpath .. "Maps/MapExceptions/NpcExceptions")
 local dialogSolver        = require (cppdpath .. "Lib/MoveTo/DialogSolver")
+local mapPath             = require (cppdpath .. "Lib/MoveTo/MapPath")
 local elevatorExceptions  = require (cppdpath .. "Maps/MapExceptions/Elevators")
 local moveAbilities       = {["cut"] = 0, ["surf"] = 0, ["dig"] = 155, ["rock smash"] = 0, ["dive"] = 155}
 local moveItems           = {"Lift Key", "Silph Scope", "Bicycle"}
@@ -208,22 +211,23 @@ end
 
 -- try to move with exception, and with the map name if no exception are found.
 local function movingApply(from, toMap)
+local mapLink = mapLinks[from][toMap]
 	Lib.log1time("Path: Maps Remains: " .. #pathSolution .. "  Moving To: --> " .. toMap)
 	if handleException(from, toMap) then
 		return true	
-	elseif mapLinks[from][toMap] ~= nil then
-		if #mapLinks[from][toMap] == 1 then
-			if #mapLinks[from][toMap][1] == 2 then
-				moveToCell(mapLinks[from][toMap][1][1], mapLinks[from][toMap][1][2])
+	elseif mapLink then
+		if #mapLink == 1 then
+			if #mapLink[1] == 2 then
+				moveToCell(mapLink[1][1], mapLink[1][2])
 			else
-				moveToCell(getNearestMovableCell(mapLinks[from][toMap][1])[1], getNearestMovableCell(mapLinks[from][toMap][1])[2])
+				moveToCell(getNearestMovableCell(mapLink[1])[1], getNearestMovableCell(mapLink[1])[2])
 			end
 		else 
-			if #mapLinks[from][toMap] > 1 then
-				if Game.getDistance(getPlayerX(), getPlayerY(), getNearestMovableCell(mapLinks[from][toMap][1])[1], getNearestMovableCell(mapLinks[from][toMap][1])[2]) > Game.getDistance(getPlayerX(), getPlayerY(), getNearestMovableCell(mapLinks[from][toMap][2])[1], getNearestMovableCell(mapLinks[from][toMap][2])[2]) then
-					table.remove(mapLinks[from][toMap], 1)
+			if #mapLink > 1 then
+				if Game.getDistance(getPlayerX(), getPlayerY(), getNearestMovableCell(mapLink[1])[1], getNearestMovableCell(mapLink[1])[2]) > Game.getDistance(getPlayerX(), getPlayerY(), getNearestMovableCell(mapLink[2])[1], getNearestMovableCell(mapLink[2])[2]) then
+					table.remove(mapLink, 1)
 				else
-					table.remove(mapLinks[from][toMap], 2)
+					table.remove(mapLink, 2)
 				end
 			end
 		end
@@ -362,6 +366,7 @@ end
 -- load map and settings
 local function onPathfinderStart()
     globalMap = assert(_globalMap(), "Pathfinder --> Error : failed to load map")
+	Lib.log1time("Pathfinder v(" .. version .. ") :")
     npcExceptions = _npcExceptions()
     initSettings(ss)
 end
