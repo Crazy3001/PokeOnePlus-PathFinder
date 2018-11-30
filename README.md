@@ -35,6 +35,6 @@ The `aStar` function expect a few more arguments than most other implementations
 I therefore invite you to read `example.lua`
 
 ### Original Projects
-*https://github.com/Rympex/Pathfinding-Dijkstra*
-*https://github.com/MeltWS/ProShinePathfinder*
-*https://github.com/Zonz/ProShinePathfinder*
+- https://github.com/Rympex/Pathfinding-Dijkstra
+- https://github.com/MeltWS/ProShinePathfinder
+- https://github.com/Zonz/ProShinePathfinder
