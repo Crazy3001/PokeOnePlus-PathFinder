@@ -19,7 +19,7 @@ Use `LoadMe_Test.lua` to test the module, I recommand you [read](https://github.
 #####Know issues :
 
 * X map does not work! Not everything is currently implemented, I welcome help if you want to implement maps, make pull request on github.
-* Planning on dig and headbutt scripts. ( all you have to do is tell it where to go.)
+* Planning on headbutt and discover scripts. ( all you have to do is tell it where to go.)
 
 ## Contributors:
 
