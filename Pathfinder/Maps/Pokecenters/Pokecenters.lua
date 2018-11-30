@@ -1,4 +1,5 @@
 local Pokecenters = {
+
     -- kanto
     "Viridian Pokémon Center",
     "Pewter Pokémon Center",
