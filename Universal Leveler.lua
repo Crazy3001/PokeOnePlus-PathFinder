@@ -328,8 +328,7 @@ function allPokemonReachedTargetLevel()
 end
 
 function onPathAction()
-local map = getMapName()
-local location = location
+local map = getAreaName()
 canNotSwitch = false
 failedRun = false
 
