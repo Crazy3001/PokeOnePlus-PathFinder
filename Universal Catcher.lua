@@ -514,6 +514,6 @@ function onBattleAction()
 		canNotSwitch = false
 		return run() or attack()
 	else
-		return run() or sendUsablePokemon() 
+		return run() or attack() or sendUsablePokemon() 
 	end
 end
