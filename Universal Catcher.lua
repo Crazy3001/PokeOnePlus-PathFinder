@@ -128,7 +128,7 @@ function onBattleMessage(wild)
 		log("Info | Shineys encountered: " .. shinyCounter)
 		log("Info | Pokemon caught: " .. catchCounter)
 		log("Info | Pokemon encountered: " .. wildCounter)
-	elseif stringContains(wild, "Success! You caught ") then
+	elseif stringContains(wild, " was caught!") then
 		catchCounter = catchCounter + 1
 		log("Info | Shineys encountered: " .. shinyCounter)
 		log("Info | Pokemon caught: " .. catchCounter)
@@ -379,7 +379,7 @@ end
 function goToPath()
 local map = getAreaName()
 local location = location
-	if getMapName() == location then
+	if getAreaName() == location then
 		if type(area) == "string" then
 			area = area:upper()
 		else

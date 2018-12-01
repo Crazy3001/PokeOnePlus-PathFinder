@@ -12,7 +12,7 @@ author = "Crazy3001"
 
 --Case Sensitive--
 --Put the name of the map you want to train at between "". {Example: location = "Route 121"}
-local location = "Route 22"		
+local location = "Kanto Safari Zone - East"		
 
 -- Put "Grass" for grass, "Water" for water, {x, y} for fishing cell, {x1, y1, x2, y2} for rectangle
 -- If you're using a rectangle, you can set more rectangles to hunt in just by adding 4 more parameters. Example: local area = {x1, y1, x2, y2, x1, y1, x2, y2}
@@ -27,14 +27,14 @@ local catchNotCaught = false
 --the below is case-sensitive, add more moves by adding commas. example : catchThesePokemon = {"Pokemon 1", "Pokemon 2", "Pokemon 3"}--
 --Even if you set all other capture variables to false, we'll still try to catch these/this pokemon--
 --Leave an empty "" here if you aren't using it--
-local catchThesePokemon = {""}
+local catchThesePokemon = {"Scyther"}
 
 --When leveling, if there are any Pokemon you do not want to fight, put them in here. Example : evadeThesePokemon = {"Pokemon 1", "Pokemon 2", "Pokemon 3"}--
 --Leave an empty "" here if you aren't using it--
 local evadeThesePokemon = {""}
 	
 --Will level your pokemon to this level then stop. Put 101 if EV Training or if you want level 100 Pokemon to fight.--
-local levelPokesTo = 60
+local levelPokesTo = 30
 
 --What level you want your pokemon to start fight instead of switching out.
 local minLevel = 25
@@ -109,7 +109,7 @@ function onBattleMessage(wild)
        log("Info | Pokemon caught: " .. catchCounter)
        log("Info | Pokemon encountered: " .. wildCounter)
 	   log("*********************************************************************************************")
-    elseif stringContains(wild, "Success! You caught ") then
+	elseif stringContains(wild, " was caught!") then
        catchCounter = catchCounter + 1
 	   log("*********************************************************************************************")
        log("Info | Shineys encountered: " .. shinyCounter)
