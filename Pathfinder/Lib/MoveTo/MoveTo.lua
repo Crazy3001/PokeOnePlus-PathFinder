@@ -14,7 +14,6 @@ local _globalMap          = require (cppdpath .. "Maps/GlobalMap")
 local mapAreas            = require (cppdpath .. "Maps/MapArea")
 local mapLinks            = require (cppdpath .. "Maps/MapLink")
 local subMaps             = require (cppdpath .. "Maps/MapExceptions/SubstituteMaps")
-local linkExceptions      = require (cppdpath .. "Maps/MapExceptions/LinkExceptions")
 local _npcExceptions      = require (cppdpath .. "Maps/MapExceptions/NpcExceptions")
 local dialogSolver        = require (cppdpath .. "Lib/MoveTo/DialogSolver")
 local mapPath             = require (cppdpath .. "Lib/MoveTo/MapPath")
@@ -133,7 +132,7 @@ local function getNextNodes()
     local from = playerNode
     while pathSolution[1] and isSameMap(playerNode, pathSolution[1]) do
         local toMap = pathSolution[1]
-        if exceptionExist(linkExceptions, from, toMap) or exceptionExist(npcExceptions, from, toMap) then
+        if exceptionExist(npcExceptions, from, toMap) then
             return from, toMap
         end
         from = pathSolution[1]
@@ -144,9 +143,7 @@ end
 
 -- check for exceptions from n1 to n2, and solve it
 local function handleException(n1, n2)
-    if exceptionExist(linkExceptions , n1, n2) then
-        return assert(moveToCell(table.unpack(linkExceptions[n1][n2][1])), "Pathfinder --> Error: Exception invalid for: " .. n1 .. " -> " .. n2)
-    elseif exceptionExist(npcExceptions, n1, n2) then
+    if exceptionExist(npcExceptions, n1, n2) then
         return assert(talkToNpcOnCell(table.unpack(npcExceptions[n1][n2][1])), "Pathfinder --> Error: Exception invalid for: " .. n1 .. " -> " .. n2)
     elseif exceptionExist(elevatorExceptions, n1, n2) then
         return solveElevatorExce(n1, n2)
