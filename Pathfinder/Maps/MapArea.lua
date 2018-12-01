@@ -21,6 +21,10 @@ return {
 	["Route 14"] = {{115, 236, 145, 264}}, 
 	["Route 15"] = {{42, 254, 114, 268}}
 },
+["kanto_e_23"] = {
+	["Route 23_A"] = {{22, 93, 43, 101}, {21, 102, 68, 184}}, 
+	["Route 23_B"] = {{31, 22, 69, 84}, {51, 85, 69, 99}}
+},
 ["kanto_e_celadon_07_16"] = {
 	["Celadon City"] = {{101, 61, 177, 146}}, 
 	["Route 7"] = {{178, 80, 226, 112}}, 
@@ -217,6 +221,10 @@ return {
 ["kanto_i_fuchsia_gates_2f"] = {
 	["Fuchsia City Gate East 2F"] = {{38, 63, 48, 72}}
 },
+["kanto_i_kantoleague"] = {
+	["E4 - Lorelei"] = {{16, 6, 34, 28}}, 
+	["E4 - Bruno"] = {{16, 60, 34, 81}}, 
+},
 ["kanto_i_lavender"] = {
 	["House of Memories"] = {{81, 49, 96, 67}}, 
 	["Lavender Item Buyer"] = {{20, 127, 28, 135}}, 
@@ -257,6 +265,10 @@ return {
 	["Pewter Pokémon Center"] = {{63, 96, 74, 117}}, 
 	["Pewter Pokémon Mart"] = {{9, 10, 23, 22}}, 
 	["Route 2 East House"] = {{129, 65, 135, 72}}
+},
+["kanto_i_pokemonleague"] = {
+	["Pokémon League"] = {{25, 22, 55, 56}}, 
+	["Pokémon League Bathroom"] = {{119, 27, 146, 36}}
 },
 ["kanto_i_pokemonleaguereception"] = {
 	["Pokémon League Reception"] = {{7, 11, 43, 40}}
@@ -432,6 +444,18 @@ return {
 	["Vermilion Gym"] = {{81, 69, 93, 90}}, 
 	["Vermilion Pokémon Center"] = {{135, 78, 146, 98}}, 
 	["Vermilion Pokémon Mart"] = {{4, 5, 18, 17}}
+},
+["kanto_i_victoryroad"] = {
+	["Victory Road"] = {{6, 223, 40, 240}}, 
+	["Victory Road 1F"] = {{4, 3, 41, 65}}, 
+	["Victory Road 2F_A"] = {{7, 93, 28, 124}, {29, 107, 45, 111}, {40, 112, 58, 118}, {51, 119, 57, 123}}, 
+	["Victory Road 2F_B"] = {{49, 97, 67, 113}, {60, 114, 66, 124}, {58, 121, 59, 123}}, 
+	["Victory Road 2F_C"] = {{30, 113, 38, 119}}, 
+	["Victory Road 2F_D"] = {{30, 120, 41, 124}}, 
+	["Victory Road 3F_A"] = {{6, 163, 20, 173}}, 
+	["Victory Road 3F_B"] = {{14, 180, 18, 188}, {19, 186, 24, 192}, {25, 189, 29, 192}, {21, 160, 36, 180}, {37, 159, 43, 173}, {36, 181, 36, 183}}, 
+	["Victory Road 3F_C"] = {{45, 166, 62, 183}, {37, 175, 44, 188}, {31, 185, 36, 192}, {26, 185, 30, 187}, {20, 182, 34, 184}}, 
+	["Victory Road 3F_D"] = {{51, 185, 63, 193}}
 },
 ["kanto_i_viridian"] = {
 	["Emmy's House"] = {{112, 73, 121, 79}}, 

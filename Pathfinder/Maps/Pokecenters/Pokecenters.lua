@@ -11,7 +11,8 @@ local Pokecenters = {
 	"Celadon Pokémon Center",
 	"Fuchsia Pokémon Center",
 	"Saffron Pokémon Center",
-	"Cinnabar Pokémon Center"
+	"Cinnabar Pokémon Center",
+	"Pokémon League"
 }
 
 return Pokecenters

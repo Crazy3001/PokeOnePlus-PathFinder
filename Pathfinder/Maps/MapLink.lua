@@ -61,6 +61,8 @@ mapLink["Daves House"] = {["Pewter City"] = {{72, 17}}}
 mapLink["Diglett's Cave_A"] = {["Vermilion City"] = {{41, 95}}, ["Diglett's Cave_B"] = {{48, 91}}}
 mapLink["Diglett's Cave_B"] = {["Diglett's Cave_A"] = {{42, 58}}, ["Diglett's Cave_C"] = {{15, 9}}}
 mapLink["Diglett's Cave_C"] = {["Route 2_D"] = {{8, 94}}, ["Diglett's Cave_B"] = {{13, 88}}}
+mapLink["E4 - Lorelei"] = {["E4 - Bruno"] = {{24, 7, 26, 7}}}
+mapLink["E4 - Bruno"] = {[""] = {{24, 60, 26, 60}}}
 mapLink["Emmy's House"] = {["Viridian City"] = {{117, 79}}}
 mapLink["Fisherman's House"] = {["Vermilion City"] = {{9, 45}}}
 mapLink["Fuchsia City Gate East 2F"] = {["Fuchsia City Gate East"] = {{46, 69, 46, 70}}}
@@ -81,7 +83,7 @@ mapLink["Josh's House"] = {["Cerulean City"] = {{96, 51, 97, 51}}}
 mapLink["Kanto Safari Zone - East"] = {["Kanto Safari Zone"] = {{154, 112, 154, 113}}, ["Kanto Safari Zone - North"] = {{154, 68, 154, 69}}}
 mapLink["Kanto Safari Zone - North"] = {["Kanto Safari Zone - East"] = {{155, 68, 155, 69}}, ["Kanto Safari Zone - West"] = {{70, 72, 71, 72}}}
 mapLink["Kanto Safari Zone - West"] = {["Kanto Safari Zone - North"] = {{70, 71, 71, 71}}, ["Secret House"] = {{40, 74}}}
-mapLink["Kanto Safari Zone"] = {["Safari Gate"] = {{126, 148, 127, 148}}, ["Kanto Safari Zone - East"] = {{155, 112, 155, 113}}, ["Safari Zone - Center"] = {{131, 134}}}
+mapLink["Kanto Safari Zone"] = {["Safari Gate"] = {{126, 148, 127, 148}}, ["Kanto Safari Zone - East"] = {{171, 112, 171, 113}}, ["Safari Zone - Center"] = {{131, 134}}}
 mapLink["Lars House"] = {["Vermilion City"] = {{46, 51}}}
 mapLink["Lavender Item Buyer"] = {["Lavender Town"] = {{23, 135}}}
 mapLink["Lavender Pokémon Center"] = {["Lavender Town"] = {{52, 25, 53, 25}}, ["Tourney Stadium"] = {{55, 3, 57, 3}}}
@@ -123,7 +125,9 @@ mapLink["Pokémon Lab Room 1"] = {["Pokémon Lab"] = {{11, 53}}}
 mapLink["Pokémon Lab Room 2"] = {["Pokémon Lab"] = {{11, 95}}}
 mapLink["Pokémon Lab Room 3"] = {["Pokémon Lab"] = {{11, 134}}}
 mapLink["Pokémon Lab"] = {["Cinnabar Island"] = {{6, 15}}, ["Pokémon Lab Room 1"] = {{17, 7}}, ["Pokémon Lab Room 2"] = {{23, 7}}, ["Pokémon Lab Room 3"] = {{29, 7}}}
-mapLink["Pokémon League Reception"] = {["Route 22"] = {{43, 22}}}
+mapLink["Pokémon League"] = {["Route 23_B"] = {{40, 55}}, ["Pokémon League Bathroom"] = {{40, 23}}}
+mapLink["Pokémon League Bathroom"] = {["Pokémon League"] = {{136, 35, 137, 35}}}
+mapLink["Pokémon League Reception"] = {["Route 22"] = {{43, 22}}, ["Route 23_A"] = {{25, 11}}}
 mapLink["Pokémon Mansion 2F_A"] = {["Pokémon Mansion"] = {{9, 71, 9, 72}}, ["Pokémon Mansion 3F_B"] = {{13, 71, 13, 72}}, ["Pokémon Mansion 3F_A"] = {{13, 60, 13, 61}}}
 mapLink["Pokémon Mansion 2F_B"] = {["Pokémon Mansion 3F_A"] = {{37, 78, 37, 79}}}
 mapLink["Pokémon Mansion 3F_A"] = {["Pokémon Mansion 2F_A"] = {{9, 125, 9, 126}}, ["Pokémon Mansion"] = {{20, 140, 22, 140}, {25, 140, 25, 140}}, ["Pokémon Mansion 2F_B"] = {{36, 140, 36, 141}}}
@@ -208,6 +212,8 @@ mapLink["Route 21 Gate"] = {["Route 21_B"] = {{11, 23}}, ["Route 21_A"] = {{11, 
 mapLink["Route 21_A"] = {["Pallet Town"] = {{146, 203, 150, 203}}, ["Route 21 Gate"] = {{153, 313, 154, 313}}}
 mapLink["Route 21_B"] = {["Cinnabar Island"] = {{53, 65, 95, 65}}, ["Route 21 Gate"] = {{83, 27, 84, 27}}}
 mapLink["Route 22"] = {["Viridian City"] = {{105, 87, 105, 89}}, ["Pokémon League Reception"] = {{39, 87, 39, 89}}}
+mapLink["Route 23_A"] = {["Pokémon League Reception"] = {{39, 181, 41, 181}}, ["Victory Road 1F"] = {{32, 94}}}
+mapLink["Route 23_B"] = {["Victory Road"] = {{53, 94}}, ["Pokémon League"] = {{42, 24}}}
 mapLink["Route 24"] = {["Cerulean City"] = {{181, 74, 184, 74}, {191, 74, 192, 74}}, ["Route 25"] = {{198, 22, 198, 26}, {198, 29, 198, 29}}}
 mapLink["Route 25"] = {["Route 24"] = {{197, 22, 197, 26}, {197, 29, 197, 33}}, ["Sea Cottage"] = {{284, 15}}}
 mapLink["S.S. Anne 2F Room 1"] = {["S.S. Anne 2F"] = {{19, 272, 21, 272}}}
@@ -321,6 +327,16 @@ mapLink["Vermilion City_B"] = {["Vermilion Gym"] = {{107, 142}}, ["Vermilion Cit
 mapLink["Vermilion Gym"] = {["Vermilion City_B"] = {{87, 90}}}
 mapLink["Vermilion Pokémon Center"] = {["Vermilion City"] = {{140, 98, 141, 98}}}
 mapLink["Vermilion Pokémon Mart"] = {["Vermilion City"] = {{9, 17, 10, 17}}}
+mapLink["Victory Road"] = {["Victory Road 3F_B"] = {{8, 239}}, ["Route 23_B"] = {{23, 240}}}
+mapLink["Victory Road 1F"] = {["Route 23_A"] = {{36, 62}}, ["Victory Road 2F_A"] = {{9, 9}}}
+mapLink["Victory Road 2F_A"] = {["Victory Road 1F"] = {{11, 110}}, ["Victory Road 3F_A"] = {{11, 96}}, ["Victory Road 3F_D"] = {{57, 117}}, ["Victory Road 2F_B"] = {{58, 121, 58, 123}}}
+mapLink["Victory Road 2F_B"] = {["Victory Road 3F_C"] = {{62, 100}}}
+mapLink["Victory Road 2F_C"] = {["Victory Road 2F_D"] = {{32, 120, 38, 120}}}
+mapLink["Victory Road 2F_D"] = {["Victory Road 3F_B"] = {{32, 123}}}
+mapLink["Victory Road 3F_A"] = {["Victory Road 2F_A"] = {{8, 166}}, ["Victory Road 3F_B"] = {{21, 170, 21, 172}}}
+mapLink["Victory Road 3F_B"] = {["Victory Road 2F_D"] = {{28, 191}}, ["Victory Road 2F_A"] = {{22, 165}}, ["Victory Road"] = {{41, 159}}}
+mapLink["Victory Road 3F_C"] = {["Victory Road 2F_B"] = {{57, 169}}, ["Victory Road 2F_B"] = {{59, 175}}, ["Victory Road 2F_D"] = {{32, 191}}, ["Victory Road 2F_C"] = {{29, 185}}}
+mapLink["Victory Road 3F_D"] = {["Victory Road 2F_A"] = {{52, 187}}, ["Victory Road 2F_B"] = {{58, 190}}}
 mapLink["Viridian City"] = {["Route 1"] = {{148, 104, 150, 104}}, ["Viridian Pokémon Center"] = {{146, 91}}, ["Emmy's House"] = {{148, 81}}, ["Viridian Pokémon Mart"] = {{156, 81}}, ["Trainers School"] = {{148, 72}}, ["Viridian Gym"] = {{159, 68}}, ["Route 22"] = {{104, 87, 104, 89}}, ["Route 2_A"] = {{138, 50, 141, 50}}}
 mapLink["Viridian Forest Gate East"] = {["Route 2_B"] = {{51, 49}}, ["Route 2_D"] = {{51, 36}}}
 mapLink["Viridian Forest Gate North"] = {["Route 2_C"] = {{8, 3}}, ["Viridian Forest"] = {{8, 16}}}

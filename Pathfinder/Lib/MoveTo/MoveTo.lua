@@ -4,7 +4,7 @@ local function rmlast(str) return str:sub(1, -2):match(".+[%./]") or "" end -- r
 local cppdpath = nTimes(3, rmlast, cpath) -- callee parent of parent dir path
 local cpppdpath = rmlast(cppdpath) -- callee parent parent of parent dir path
 
-local version = "1.0.0"
+local version = "1.0.1"
 
 local aStar               = require (cppdpath .. "Lib/lua-astar/AStar")
 local Lib                 = require (cppdpath .. "Lib/Lib")
@@ -350,6 +350,21 @@ exceptionExist   = exceptionExist,
 
 -- we handle dialogs in DialogSolver
 local function onPathfinderDialogMessage(message)
+    if stringContains(message, "Your safari time is over.") then 
+		if not moveTo(map, "Fuchsia City") then
+			resetPath()
+		end
+	end
+    --[[if stringContains(message, "Hey, you want to leave the Safari Zone?") then 
+		if stringContains(toMap, "Safari") then 
+			pushDialogAnswer(1)
+		else
+			pushDialogAnswer(2)
+			if not moveTo(map, "Fuchsia City") then
+				resetPath() 
+			end
+		end
+	end]]
     pfData.from = from
     pfData.toMap = toMap
     pfData.abilitiesIndex = settings.abilitiesIndex
@@ -357,7 +372,9 @@ local function onPathfinderDialogMessage(message)
 end
 
 local function onPathfinderSystemMessage(message)
-    if stringContains(message, "Your Safari Time is over!") then resetPath() end
+    --if stringContains(message, "Your safari time is over.") then 
+	--	resetPath() 
+	--end
 end
 
 -- load map and settings
