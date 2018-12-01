@@ -12,7 +12,7 @@ author = "Crazy3001"
 
 --Case Sensitive--
 --Put the name of the map you want to train at between "". {Example: location = "Route 121"}
-local location = "Route 15"		
+local location = "Route 22"		
 
 -- Put "Grass" for grass, "Water" for water, {x, y} for fishing cell, {x1, y1, x2, y2} for rectangle
 -- If you're using a rectangle, you can set more rectangles to hunt in just by adding 4 more parameters. Example: local area = {x1, y1, x2, y2, x1, y1, x2, y2}
@@ -340,7 +340,7 @@ failedRun = false
 		if getTotalUsablePokemonCount() >= 1 and (getTotalPokemonToLevelCount() > 1 or (getTotalPokemonToLevelCount() == 1 and getPokemonHealthPercent(getFirstPokemonToLevel()) >= healthToRunAt)) then
 			if not pf.moveTo(map, location) then
 				if type(area) == "string" then
-					location = area:upper()
+					area = area:upper()
 				else
 					if #area == 2 then
 						return updateFishing(area)
@@ -353,9 +353,9 @@ failedRun = false
 					end
 				end
 				
-				if location == "GRASS" then
+				if area == "GRASS" then
 					return moveToGrass()
-				elseif location == "WATER" then
+				elseif area == "WATER" then
 					return moveToWater()
 				end
 			end
