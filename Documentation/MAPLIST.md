@@ -4,9 +4,22 @@
 
 * Celadon City
 	* Celadon Department Store
+		* Celadon Department Store 2F
+		* Celadon Department Store 3F
+		* Celadon Department Store 4F
+		* Celadon Department Store 5F
+		* Celadon Department Store 6F
+		* Celadon Department Store Elevator
+		* Celadon Department Store 2F Elevator
+		* Celadon Department Store 3F Elevator
+		* Celadon Department Store 4F Elevator
+		* Celadon Department Store 5F Elevator
+		* Celadon Department Store 6F Elevator
 	* Surface House
+		* Surface House 2F
 	* Celadon Restaurant
 	* Team Rocket House
+		* Team Rocket House 2F
 	* Celadon Condominiums
 		* Celadon Condominiums_A
 		* Celadon Condominiums_B
@@ -21,6 +34,16 @@
 	* Celadon Gym
 	* Celadon Pokémon Center
 	* Celadon Game Corner
+		* Celadon Game Corner - Prize Room
+		* Rocket Hideout B1F_A
+		* Rocket Hideout B1F_B
+		* Rocket Hideout B2F
+		* Rocket Hideout B3F
+		* Rocket Hideout B4F_A
+		* Rocket Hideout B4F_B
+		* Rocket Hideout B1F Elevator
+		* Rocket Hideout B2F Elevator
+		* Rocket Hideout B4F Elevator
 * Cerulean City
 * Cinnabar Island
 * Diglett's Cave
