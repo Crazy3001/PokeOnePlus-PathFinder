@@ -8,10 +8,10 @@ local cpppdpath = nTimes(4, rmlast, cpath) -- callee parent parent of parent dir
 --Missing Maps: 
 --Mt. Moon Rock Climb
 --Cerulean Cave
+--Magnet Train
 --Safari Zone needs refined
 --Seafoam needs refined
---Mt Silver
---Saffron Railway Station
+--Mt Silver Waterfall
 
 return function()
 
@@ -48,7 +48,8 @@ KantoMap["Celadon Gym"] = {["Celadon City"] = {1}}
 KantoMap["Celadon Pokémon Center"] = {["Celadon City"] = {1}}
 KantoMap["Celadon Restaurant"] = {["Celadon City"] = {1}}
 KantoMap["Cerulean Bike Shop"] = {["Cerulean City"] = {1}}
-KantoMap["Cerulean City"] = {["Route 4_B"] = {1}, ["Tamara's House"] = {1}, ["April And May's House"] = {1}, ["Lola's House"] = {1}, ["Granny And Freddy's House"] = {1}, ["Cerulean Pokémon Center"] = {1}, ["Cerulean Pokémon Mart"] = {1}, ["Cerulean Gym"] = {1}, ["Martha And Martin's House"] = {1}, ["Josh's House"] = {1}, ["Cerulean Bike Shop"] = {1}, ["Route 5"] = {1}, ["Route 24"] = {1}, ["Route 9_A"] = {1}}
+KantoMap["Cerulean Cave_A"] = {["Cerulean City"] = {1}}
+KantoMap["Cerulean City"] = {["Cerulean Cave_A"] = {1}, ["Route 4_B"] = {1}, ["Tamara's House"] = {1}, ["April And May's House"] = {1}, ["Lola's House"] = {1}, ["Granny And Freddy's House"] = {1}, ["Cerulean Pokémon Center"] = {1}, ["Cerulean Pokémon Mart"] = {1}, ["Cerulean Gym"] = {1}, ["Martha And Martin's House"] = {1}, ["Josh's House"] = {1}, ["Cerulean Bike Shop"] = {1}, ["Route 5"] = {1}, ["Route 24"] = {1}, ["Route 9_A"] = {1}}
 KantoMap["Cerulean Gym"] = {["Cerulean City"] = {1}}
 KantoMap["Cerulean Jail Cells B1F"] = {["Cerulean Jail Cells"] = {1}}
 KantoMap["Cerulean Jail Cells"] = {["Cerulean Jail"] = {1}, ["Cerulean Jail Cells B1F"] = {1}}
@@ -88,6 +89,7 @@ KantoMap["Kanto Safari Zone - East"] = {["Kanto Safari Zone"] = {1}, ["Kanto Saf
 KantoMap["Kanto Safari Zone - North"] = {["Kanto Safari Zone - East"] = {1}, ["Kanto Safari Zone - West"] = {1}}
 KantoMap["Kanto Safari Zone - West"] = {["Kanto Safari Zone - North"] = {1}, ["Secret House"] = {1}}
 KantoMap["Kanto Safari Zone"] = {["Kanto Safari Zone - East"] = {1}, ["Safari Gate"] = {1}, ["Safari Zone - Center"] = {1}}
+KantoMap["Lady Incognitia's House"] = {["Route 28_B"] = {1}}
 KantoMap["Lars House"] = {["Vermilion City"] = {1}}
 KantoMap["Lavender Item Buyer"] = {["Lavender Town"] = {1}}
 KantoMap["Lavender Pokémon Center"] = {["Lavender Town"] = {1}, ["Tourney Stadium"] = {1}}
@@ -113,6 +115,23 @@ KantoMap["Mt. Moon B2F_B"] = {["Mt. Moon B1F_B"] = {1}}
 KantoMap["Mt. Moon B2F_C"] = {["Mt. Moon B1F_C"] = {1}, ["Mt. Moon B1F_D"] = {1}}
 KantoMap["Mt. Moon Pokémon Center"] = {["Route 3"] = {1}}
 KantoMap["Mt. Moon"] = {["Route 3"] = {1}, ["Mt. Moon B1F_A"] = {1}, ["Mt. Moon B1F_B"] = {1}, ["Mt. Moon B1F_C"] = {1}}
+KantoMap["Mt. Silver 1F_A"] = {["Mt. Silver"] = {1}, ["Mt. Silver Lower Mountainside"] = {1}}
+KantoMap["Mt. Silver 1F_B"] = {}
+KantoMap["Mt. Silver 1F_C"] = {}
+KantoMap["Mt. Silver 1F_D"] = {["Mt. Silver Lower Mountainside"] = {1}, ["Mt. Silver 2F_A"] = {1}}
+KantoMap["Mt. Silver 1F_E"] = {["Mt. Silver Lower Mountainside"] = {1}}
+KantoMap["Mt. Silver 2F_A"] = {["Mt. Silver 1F_D"] = {1}, ["Mt. Silver Upper Mountainside_A"] = {1}}
+KantoMap["Mt. Silver 2F_B"] = {["Mt. Silver Upper Mountainside_A"] = {1}}
+KantoMap["Mt. Silver 2F_C"] = {["Mt. Silver Upper Mountainside_A"] = {1}, ["Mt. Silver Upper Mountainside_C"] = {1}}
+KantoMap["Mt. Silver 2F_D"] = {["Mt. Silver Upper Mountainside_C"] = {1}, ["Mt. Silver Upper Mountainside_B"] = {1}}
+KantoMap["Mt. Silver 3F"] = {["Mt. Silver Upper Mountainside_B"] = {1}, ["Mt. Silver Upper Mountainside_D"] = {1}}
+KantoMap["Mt. Silver Lower Mountainside"] = {["Mt. Silver 1F_A"] = {1}, ["Mt. Silver 1F_E"] = {1}, ["Mt. Silver 1F_D"] = {1}}
+KantoMap["Mt. Silver Pokémon Center"] = {["Mt. Silver"] = {1}}
+KantoMap["Mt. Silver Upper Mountainside_A"] = {["Mt. Silver 2F_A"] = {1}, ["Mt. Silver 2F_B"] = {1}, ["Mt. Silver 2F_C"] = {1}}
+KantoMap["Mt. Silver Upper Mountainside_B"] = {["Mt. Silver 2F_D"] = {1}, ["Mt. Silver 3F"] = {1}}
+KantoMap["Mt. Silver Upper Mountainside_C"] = {["Mt. Silver 2F_C"] = {1}, ["Mt. Silver 2F_D"] = {1}}
+KantoMap["Mt. Silver Upper Mountainside_D"] = {["Mt. Silver 3F"] = {1}}
+KantoMap["Mt. Silver"] = {["Mt. Silver Pokémon Center"] = {1}, ["Route 28_A"] = {1}}
 KantoMap["Oak's House 2F"] = {["Oak's House"] = {1}}
 KantoMap["Oak's House"] = {["Pallet Town"] = {1}, ["Oak's House 2F"] = {1}}
 KantoMap["Oak's Lab"] = {["Pallet Town"] = {1}}
@@ -129,9 +148,9 @@ KantoMap["Pokémon Lab Room 1"] = {["Pokémon Lab"] = {1}}
 KantoMap["Pokémon Lab Room 2"] = {["Pokémon Lab"] = {1}}
 KantoMap["Pokémon Lab Room 3"] = {["Pokémon Lab"] = {1}}
 KantoMap["Pokémon Lab"] = {["Pokémon Lab Room 1"] = {1}, ["Pokémon Lab Room 2"] = {1}, ["Pokémon Lab Room 3"] = {1}, ["Cinnabar Island"] = {1}}
-KantoMap["Pokémon League"] = {["Pokémon League Bathroom"] = {1}, ["Route 23_B"] = {1}}
 KantoMap["Pokémon League Bathroom"] = {["Pokémon League"] = {1}}
-KantoMap["Pokémon League Reception"] = {["Route 22"] = {1}, ["Route 23_A"] = {1}}
+KantoMap["Pokémon League Reception"] = {["Route 22"] = {1}, ["Route 23_A"] = {1}, ["Route 28_A"] = {1}}
+KantoMap["Pokémon League"] = {["Pokémon League Bathroom"] = {1}, ["Route 23_B"] = {1}}
 KantoMap["Pokémon Mansion 2F_A"] = {["Pokémon Mansion"] = {1}, ["Pokémon Mansion 3F_A"] = {1}, ["Pokémon Mansion 3F_B"] = {1}}
 KantoMap["Pokémon Mansion 2F_B"] = {["Pokémon Mansion 3F_A"] = {1}}
 KantoMap["Pokémon Mansion 3F_A"] = {["Pokémon Mansion 2F_A"] = {1}, ["Pokémon Mansion 2F_B"] = {1}, ["Pokémon Mansion"] = {1}}
@@ -189,7 +208,7 @@ KantoMap["Route 8_B"] = {["Route 8_A"] = {1}}
 KantoMap["Route 9_A"] = {["Cerulean City"] = {1}, ["Route 9_B"] = {1, {["abilities"] = {"cut"}}}}
 KantoMap["Route 9_B"] = {["Route 9_A"] = {1}, ["Route 10_A"] = {1}, ["Route 10_B"] = {1, {["abilities"] = {"surf"}}}}
 KantoMap["Route 10_A"] = {["Route 9_B"] = {1}, ["Rock Tunnel Pokémon Center"] = {1}, ["Rock Tunnel_A"] = {1}}
-KantoMap["Route 10_B"] = {["Route 9_B"] = {1, {["abilities"] = {"surf"}}}}
+KantoMap["Route 10_B"] = {["Route 9_B"] = {1, {["abilities"] = {"surf"}}}, ["Power Plant"] = {1}}
 KantoMap["Route 10_C"] = {["Rock Tunnel_E"] = {1}, ["Lavender Town"] = {1}}
 KantoMap["Route 11"] = {["Route 12 Gate"] = {1}, ["Vermilion City"] = {1}}
 KantoMap["Route 12 Gate 2F"] = {["Route 12 Gate"] = {1}}
@@ -219,6 +238,8 @@ KantoMap["Route 23_A"] = {["Pokémon League Reception"] = {1}, ["Victory Road 1F
 KantoMap["Route 23_B"] = {["Victory Road"] = {1}, ["Pokémon League"] = {1}}
 KantoMap["Route 24"] = {["Cerulean City"] = {1}, ["Route 25"] = {1}}
 KantoMap["Route 25"] = {["Route 24"] = {1}, ["Sea Cottage"] = {1}}
+KantoMap["Route 28_A"] = {["Mt. Silver"] = {1}, ["Route 28_B"] = {1, {["abilities"] = {"cut"}}}, ["Pokémon League Reception"] = {1}}
+KantoMap["Route 28_B"] = {["Lady Incognitia's House"] = {1}, ["Route 28_A"] = {1}}
 KantoMap["S.S. Anne 2F Room 1"] = {["S.S. Anne 2F"] = {1}}
 KantoMap["S.S. Anne 2F Room 2"] = {["S.S. Anne 2F"] = {1}}
 KantoMap["S.S. Anne 2F Room 3"] = {["S.S. Anne 2F"] = {1}}
@@ -330,16 +351,16 @@ KantoMap["Vermilion City_B"] = {["Vermilion Gym"] = {1}, ["Vermilion City"] = {1
 KantoMap["Vermilion Gym"] = {["Vermilion City_B"] = {1}}
 KantoMap["Vermilion Pokémon Center"] = {["Vermilion City"] = {1}}
 KantoMap["Vermilion Pokémon Mart"] = {["Vermilion City"] = {1}}
-KantoMap["Victory Road"] = {["Victory Road 3F_B"] = {1}, ["Route 23_B"] = {1}}
 KantoMap["Victory Road 1F"] = {["Victory Road 2F_A"] = {1}, ["Route 23_A"] = {1}}
 KantoMap["Victory Road 2F_A"] = {["Victory Road 1F"] = {1}, ["Victory Road 3F_A"] = {1}, ["Victory Road 3F_D"] = {1}, ["Victory Road 2F_B"] = {1}}
 KantoMap["Victory Road 2F_B"] = {["Victory Road 3F_C"] = {1}}
 KantoMap["Victory Road 2F_C"] = {["Victory Road 2F_D"] = {1}}
 KantoMap["Victory Road 2F_D"] = {["Victory Road 3F_B"] = {1}}
 KantoMap["Victory Road 3F_A"] = {["Victory Road 2F_A"] = {1}, ["Victory Road 3F_B"] = {1}}
-KantoMap["Victory Road 3F_B"] = {["Victory Road 2F_D"] = {1}, ["Victory Road 2F_A"] = {1}}
+KantoMap["Victory Road 3F_B"] = {["Victory Road"] = {1}, ["Victory Road 2F_D"] = {1}, ["Victory Road 2F_A"] = {1}}
 KantoMap["Victory Road 3F_C"] = {["Victory Road 2F_B"] = {1}, ["Victory Road 2F_B"] = {1}, ["Victory Road 2F_D"] = {1}, ["Victory Road 2F_C"] = {1}}
 KantoMap["Victory Road 3F_D"] = {["Victory Road 2F_A"] = {1}, ["Victory Road 2F_B"] = {1}}
+KantoMap["Victory Road"] = {["Victory Road 3F_B"] = {1}, ["Route 23_B"] = {1, {["abilities"] = {"rock smash"}}}}
 KantoMap["Viridian City"] = {["Route 2_A"] = {1}, ["Route 1"] = {1}, ["Route 22"] = {1}, ["Viridian Pokémon Center"] = {1}, ["Viridian Pokémon Mart"] = {1}, ["Emmy's House"] = {1}, ["Trainers School"] = {1}, ["Viridian Gym"] = {1}}
 KantoMap["Viridian Forest Gate East"] = {["Route 2_B"] = {1}, ["Route 2_D"] = {1}}
 KantoMap["Viridian Forest Gate North"] = {["Route 2_C"] = {1}, ["Viridian Forest"] = {1}}

@@ -27,6 +27,11 @@ return {
 		["Celadon Condominiums_A"] = {{18, 3, 23, 26}, {7, 13, 17, 25}}, 
 		["Celadon Condominiums_B"] = {{7, 3, 16, 10}}
 	},
+	["Cerulean Cave"] = {
+		["Cerulean Cave_A"] = {{16, 5, 56, 42}, {13, 18, 15, 39}, {7, 23, 12, 40}, {57, 26, 66, 40}, {57, 5, 66, 17}, {65, 18, 65, 25}}, --main
+		["Cerulean Cave_B"] = {{58, 19, 62, 25}}, --middle right
+		["Cerulean Cave_C"] = {{8, 8, 14, 16}, {9, 17, 11, 21}} --top left	
+	},
 	["Diglett's Cave"] = {
 		["Diglett's Cave_A"] = {{39, 88, 50, 95}}, 
 		["Diglett's Cave_B"] = {{4, 6, 44, 61}}, 
@@ -42,6 +47,25 @@ return {
 		["Mt. Moon B2F_A"] = {{25, 92, 44, 98}}, 
 		["Mt. Moon B2F_B"] = {{38, 67, 52, 75}}, 
 		["Mt. Moon B2F_C"] = {{33, 67, 36, 87}, {37, 77, 59, 90}, {46, 91, 60, 106}, {15, 100, 45, 106}, {15, 89, 19, 99}, {9, 65, 27, 88}}
+	},
+	["Mt. Silver 1F"] = {
+		["Mt. Silver 1F_A"] = {{90, 70, 113, 90}, {80, 78, 89, 90}, {79, 80, 79, 87}, {37, 81, 78, 89}}, --bottom
+		["Mt. Silver 1F_B"] = {{31, 49, 67, 62}, {31, 63, 56, 80}, {57, 69, 67, 80}, {68, 73, 83, 80}}, --middle left
+		["Mt. Silver 1F_C"] = {{31, 29, 63, 48}}, --top left
+		["Mt. Silver 1F_D"] = {{67, 26, 104, 68}, {58, 64, 66, 66}, {69, 69, 85, 71}, {85, 72, 87, 77}, {105, 64, 115, 68}}, --middle
+		["Mt. Silver 1F_E"] = {{107, 32, 116, 50}}, --top right	
+	},
+	["Mt. Silver 2F"] = {
+		["Mt. Silver 2F_A"] = {{156, 27, 209, 77}, {158, 21, 190, 26}, {157, 78, 180, 82}}, --main
+		["Mt. Silver 2F_B"] = {{192, 23, 213, 26}, {210, 27, 216, 48}}, --top right
+		["Mt. Silver 2F_C"] = {{210, 51, 215, 76}}, --middle right
+		["Mt. Silver 2F_D"] = {{181, 79, 213, 84}}, --bottom right
+	},
+	["Mt. Silver Upper Mountainside"] = {
+		["Mt. Silver Upper Mountainside_A"] = {{74, 51, 112, 98}}, --L shaped path
+		["Mt. Silver Upper Mountainside_B"] = {{69, 100, 86, 121}, {87, 115, 91, 116}}, --left
+		["Mt. Silver Upper Mountainside_C"] = {{88, 101, 112, 113}, {96, 114, 112, 121}, {87, 118, 95, 122}}, --right
+		["Mt. Silver Upper Mountainside_D"] = {{242, 44, 250, 91}} --ash
 	},
 	["Pokémon Mansion 2F"] = {
 		["Pokémon Mansion 2F_A"] = {{4, 60, 26, 93}, {27, 63, 29, 76}, {30, 61, 32, 74}, {33, 60, 38, 70}}, 
@@ -123,6 +147,10 @@ return {
 	["Route 23"] = {
 		["Route 23_A"] = {{22, 93, 43, 101}, {21, 102, 68, 184}}, 
 		["Route 23_B"] = {{31, 22, 69, 84}, {51, 85, 69, 99}}	
+	},
+	["Route 28"] = {
+		["Route 28_A"] = {{131, 21, 168, 27}, {76, 28, 155, 41}, {63, 19, 75, 42}}, 
+		["Route 28_B"] = {{76, 15, 130, 27}}	
 	},
 	["Saffron Gym"] = {
 		["Saffron Gym_A"] = {{137, 3, 144, 8}}, 

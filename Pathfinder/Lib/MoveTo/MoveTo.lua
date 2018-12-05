@@ -4,7 +4,7 @@ local function rmlast(str) return str:sub(1, -2):match(".+[%./]") or "" end -- r
 local cppdpath = nTimes(3, rmlast, cpath) -- callee parent of parent dir path
 local cpppdpath = rmlast(cppdpath) -- callee parent parent of parent dir path
 
-local version = "1.0.1"
+local version = "1.0.2"
 
 local aStar               = require (cppdpath .. "Lib/lua-astar/AStar")
 local Lib                 = require (cppdpath .. "Lib/Lib")
@@ -18,7 +18,7 @@ local _npcExceptions      = require (cppdpath .. "Maps/MapExceptions/NpcExceptio
 local dialogSolver        = require (cppdpath .. "Lib/MoveTo/DialogSolver")
 local mapPath             = require (cppdpath .. "Lib/MoveTo/MapPath")
 local elevatorExceptions  = require (cppdpath .. "Maps/MapExceptions/Elevators")
-local moveAbilities       = {["cut"] = 0, ["surf"] = 0, ["dig"] = 155, ["rock smash"] = 0, ["dive"] = 155}
+local moveAbilities       = {["cut"] = 0, ["surf"] = 0, ["rock smash"] = 0}
 local moveItems           = {"Lift Key", "Silph Scope", "Bicycle"}
 local globalMap           = {}
 local pathSolution        = {}
@@ -319,6 +319,12 @@ local function moveTo(map, dest)
 	if not isMounted() and not isSurfing() and isOutside() then
 		assert(useEquippedMount(), "Error using Mount.")
 		return true
+	elseif checkNpcWith("Emma's Pokéball") then
+		return talkNpcWith("Emma's Pokéball")
+	elseif checkNpcWith("LostPokeball") then
+		return talkNpcWith("LostPokeball")
+	--elseif checkNpcWith("item") then
+	--	return talkNpcWith("item")
 	elseif destStore == table.concat(dest, " | ") then
 		return moveWithCalcPath()
 	else

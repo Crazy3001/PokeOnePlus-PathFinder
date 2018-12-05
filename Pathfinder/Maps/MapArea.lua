@@ -25,6 +25,11 @@ return {
 	["Route 23_A"] = {{22, 93, 43, 101}, {21, 102, 68, 184}}, 
 	["Route 23_B"] = {{31, 22, 69, 84}, {51, 85, 69, 99}}
 },
+["kanto_e_28"] = {
+	["Route 28_A"] = {{131, 21, 168, 27}, {76, 28, 155, 41}, {63, 19, 75, 42}}, 
+	["Route 28_B"] = {{76, 15, 130, 27}},
+	["Mt. Silver"] = {{20, 16, 62, 43}}
+},
 ["kanto_e_celadon_07_16"] = {
 	["Celadon City"] = {{101, 61, 177, 146}}, 
 	["Route 7"] = {{178, 80, 226, 112}}, 
@@ -59,6 +64,15 @@ return {
 	["Route 8_A"] = {{71, 111, 102, 134}, {52, 111, 70, 116}, {10, 111, 51, 134}}, 
 	["Route 8_B"] = {{52, 117, 70, 133}}, 
 	["Route 10_C"] = {{96, 70, 147, 107}} 
+},
+["kanto_e_mtsilver"] = {
+	["Mt. Silver Lower Mountainside"] = {{72, 31, 89, 77}}, 
+},
+["kanto_e_mtsilver_sumit"] = {
+	["Mt. Silver Upper Mountainside_A"] = {{74, 51, 112, 98}}, --L shaped path
+	["Mt. Silver Upper Mountainside_B"] = {{69, 100, 86, 121}, {87, 115, 91, 116}}, --left
+	["Mt. Silver Upper Mountainside_C"] = {{88, 101, 112, 113}, {96, 114, 112, 121}, {87, 118, 95, 122}}, --right
+	["Mt. Silver Upper Mountainside_D"] = {{242, 44, 250, 91}} --ash
 },
 ["kanto_e_pallet_viridian_01_02_21_22"] = {
 	["Pallet Town"] = {{140, 173, 164, 203}}, 
@@ -117,6 +131,10 @@ return {
 ["kanto_i_16_gates"] = {
 	["Route 16 Gate"] = {{30, 74, 43, 86}}, 
 	["Route 16 Gate 2F"] = {{50, 66, 60, 74}}
+},
+["kanto_i_28"] = {
+	["Mt. Silver Pokémon Center"] = {{15, 13, 30, 38}}, 
+	["Lady Incognitia's House"] = {{61, 14, 73, 23}}
 },
 ["kanto_i_celadon"] = {
 	["Celadon City Inn"] = {{163, 5, 177, 14}}, 
@@ -182,6 +200,11 @@ return {
 	["Martha And Martin's House"] = {{55, 75, 63, 81}}, 
 	["Tamara's House"] = {{17, 42, 26, 48}}, 
 },
+["kanto_i_ceruleancave"] = {
+	["Cerulean Cave_A"] = {{16, 5, 56, 42}, {13, 18, 15, 39}, {7, 23, 12, 40}, {57, 26, 66, 40}, {57, 5, 66, 17}, {65, 18, 65, 25}}, --main
+	["Cerulean Cave_B"] = {{58, 19, 62, 25}}, --middle right
+	["Cerulean Cave_C"] = {{8, 8, 14, 16}, {9, 17, 11, 21}} --top left
+},
 ["kanto_i_cinnabar"] = {
 	["Cinnabar Gym"] = {{67, 0, 99, 40}}, 
 	["Cinnabar Pokémon Center"] = {{3, 75, 14, 96}}, 
@@ -224,6 +247,9 @@ return {
 ["kanto_i_kantoleague"] = {
 	["E4 - Lorelei"] = {{16, 6, 34, 28}}, 
 	["E4 - Bruno"] = {{16, 60, 34, 81}}, 
+	["E4 - Agatha"] = {{67, 5, 87, 30}}, 
+	["E4 - Lance"] = {{66, 60, 100, 95}}, 
+	["Kanto Hall of Fame"] = {{127, 88, 142, 111}}
 },
 ["kanto_i_lavender"] = {
 	["House of Memories"] = {{81, 49, 96, 67}}, 
@@ -248,6 +274,18 @@ return {
 },
 ["kanto_i_mtmoon_pokecenter"] = {
 	["Mt. Moon Pokémon Center"] = {{4, 4, 15, 25}}
+},
+["kanto_i_mtsilver"] = {
+	["Mt. Silver 1F_A"] = {{90, 70, 113, 90}, {80, 78, 89, 90}, {79, 80, 79, 87}, {37, 81, 78, 89}}, --bottom
+	["Mt. Silver 1F_B"] = {{31, 49, 67, 62}, {31, 63, 56, 80}, {57, 69, 67, 80}, {68, 73, 83, 80}}, --middle left
+	["Mt. Silver 1F_C"] = {{31, 29, 63, 48}}, --top left
+	["Mt. Silver 1F_D"] = {{67, 26, 104, 68}, {58, 64, 66, 66}, {69, 69, 85, 71}, {85, 72, 87, 77}, {105, 64, 115, 68}}, --middle
+	["Mt. Silver 1F_E"] = {{107, 32, 116, 50}}, --top right
+	["Mt. Silver 2F_A"] = {{156, 27, 209, 77}, {158, 21, 190, 26}, {157, 78, 180, 82}}, --main
+	["Mt. Silver 2F_B"] = {{192, 23, 213, 26}, {210, 27, 216, 48}}, --top right
+	["Mt. Silver 2F_C"] = {{210, 51, 215, 76}}, --middle right
+	["Mt. Silver 2F_D"] = {{181, 79, 213, 84}}, --bottom right
+	["Mt. Silver 3F"] = {{159, 127, 227, 149}}, 
 },
 ["kanto_i_pallet"] = {
 	["Oak's House 2F"] = {{63, 52, 73, 60}}, 
