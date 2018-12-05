@@ -3,7 +3,7 @@ author = "Crazy3001"
 
 description = [[Simple application of the PathFinder, this script moves to a destination from anywhere.]]
 
--- First you need to get the module loaded in your script :
+-- First you need to get the module loaded in your script : 
 local pf = require "Pathfinder/MoveToApp"  -- loading the module MoveToApp and getting the functions it sends back in a table: pf.
 -- Now to use PathFinder functions you can write pf.functionName().
 -- You can require MoveToApp from anywhere above in the hierarchie.
