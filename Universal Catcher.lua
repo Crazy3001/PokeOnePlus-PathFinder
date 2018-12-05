@@ -1,4 +1,4 @@
-name = "Universal Catcher - Beta Version 0.1.1"
+name = "Universal Catcher - Beta Version 0.1.1" 
 author = "Crazy3001"
 description = "Make sure your configuration is done properly. Press Start."
 
