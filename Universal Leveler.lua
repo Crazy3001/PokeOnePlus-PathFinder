@@ -1,22 +1,17 @@
-name = "Universal Leveler - Version 1.0"
+name = "Universal Leveler Beta - Version 0.1.1"
 author = "Crazy3001"
 
 				--#################################################--
 				-------------------CONFIGURATION-------------------
 				--#################################################--
---Favorites:
---Seafoam B4F (56,14,61,14)
---Dragons Den
---Victory Road Kanto 3F
-
 
 --Case Sensitive--
---Put the name of the map you want to train at between "". {Example: location = "Route 121"}
-local location = "Kanto Safari Zone - East"		
+--Put the name of the map you want to train at between "". {Example: location = "Route 2"}
+local location = "Saffron Railway Station"		
 
 -- Put "Grass" for grass, "Water" for water, {x, y} for fishing cell, {x1, y1, x2, y2} for rectangle
 -- If you're using a rectangle, you can set more rectangles to hunt in just by adding 4 more parameters. Example: local area = {x1, y1, x2, y2, x1, y1, x2, y2}
-local area = "Grass"
+local area = {49, 18, 53, 18}
 		
 -- If you're using multiple rectangles, this is the amount of time in minutes that we'll stay in one rectangle before moving to a different one
 local minutesToMove = 30
@@ -27,14 +22,14 @@ local catchNotCaught = false
 --the below is case-sensitive, add more moves by adding commas. example : catchThesePokemon = {"Pokemon 1", "Pokemon 2", "Pokemon 3"}--
 --Even if you set all other capture variables to false, we'll still try to catch these/this pokemon--
 --Leave an empty "" here if you aren't using it--
-local catchThesePokemon = {"Scyther"}
+local catchThesePokemon = {""}
 
 --When leveling, if there are any Pokemon you do not want to fight, put them in here. Example : evadeThesePokemon = {"Pokemon 1", "Pokemon 2", "Pokemon 3"}--
 --Leave an empty "" here if you aren't using it--
 local evadeThesePokemon = {""}
 	
 --Will level your pokemon to this level then stop. Put 101 if EV Training or if you want level 100 Pokemon to fight.--
-local levelPokesTo = 30
+local levelPokesTo = 80
 
 --What level you want your pokemon to start fight instead of switching out.
 local minLevel = 25
@@ -172,21 +167,24 @@ function isSorted()
 	local pokemonsUsable = getTotalPokemonToLevelCount()
 	for pokemonId=1, pokemonsUsable, 1 do
 		if not isPokemonUsable(pokemonId) or getPokemonLevel(pokemonId) >= levelPokesTo then --Move it at bottom of the Team
+			Lib.log1time("Sorting Team, Please Wait...")
 			for pokemonId_ = pokemonsUsable + 1, getTeamSize(), 1 do
 				if isPokemonUsable(pokemonId_) and getPokemonLevel(pokemonId_) < levelPokesTo then
 					swapPokemon(pokemonId, pokemonId_)
 					return true
 				end
 			end
-			
 		end
 	end
 	if not isTeamRangeSortedByLevelAscending(1, pokemonsUsable) then --Sort the team without not usable pokemons
+		Lib.log1time("Sorting Team, Please Wait...")
 		return sortTeamRangeByLevelAscending(1, pokemonsUsable)
 	end
 	if not isTeamRangeSortedByLevelAscending(pokemonsUsable + 1, getTeamSize()) then --Sort the team without not usable pokemons
+		Lib.log1time("Sorting Team, Please Wait...")
 		return sortTeamRangeByLevelAscending(pokemonsUsable + 1, getTeamSize())
 	end
+	Lib.log1time("Sorting Team, Please Wait...")
 	return false
 end
 
@@ -250,7 +248,7 @@ end
 
 function getFirstUsablePokemon()
 	for i=1, getTeamSize(), 1 do
-		if (isPokemonUsable(i) and hasRemainingPP(i)) and (getPokemonLevel(i) == 100 or (getPokemonLevel(i) >= minLevel and getPokemonLevel(i) < levelPokesTo)) then
+		if (isPokemonUsable(i) and hasRemainingPP(i) and getPokemonStatus(i) == "None") and (getPokemonLevel(i) == 100 or (getPokemonLevel(i) >= minLevel and getPokemonLevel(i) < levelPokesTo)) then
 			return i		
 		end
 	end
@@ -261,7 +259,7 @@ end
 function getTotalUsablePokemonCount()
 	local count = 0
 	for i=1, getTeamSize(), 1 do
-		if (isPokemonUsable(i) and hasRemainingPP(i)) and (getPokemonLevel(i) == 100 or (getPokemonLevel(i) >= minLevel and getPokemonLevel(i) < levelPokesTo)) then
+		if (isPokemonUsable(i) and hasRemainingPP(i) and getPokemonStatus(i) == "None") and (getPokemonLevel(i) == 100 or (getPokemonLevel(i) >= minLevel and getPokemonLevel(i) < levelPokesTo)) then
 			count = count + 1
 		end
 	end
@@ -329,9 +327,9 @@ end
 
 function onPathAction()
 local map = getAreaName()
+local location = location
 canNotSwitch = false
 failedRun = false
-
 	if isSorted() then 
 		return true
 	end
@@ -432,10 +430,10 @@ function onBattleAction()
 				canNotSwitch = false
 				return run() or attack()
 			else
-				return run() or sendAnyPokemon()
+				return run() or sendPokemon(getFirstUsablePokemon()) or attack()
 			end
 		else
-			return run() or sendAnyPokemon()
+			return run() or sendPokemon(getFirstUsablePokemon()) or attack()
 		end
 	end
 end

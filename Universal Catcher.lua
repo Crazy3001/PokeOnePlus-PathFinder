@@ -1,4 +1,4 @@
-name = "Basic Catcher"
+name = "Universal Catcher - Beta Version 0.1.1"
 author = "Crazy3001"
 description = "Make sure your configuration is done properly. Press Start."
 
@@ -9,7 +9,7 @@ description = "Make sure your configuration is done properly. Press Start."
 
 				
 --Put in the pokemon you want to catch. Leave "" if none. Example: pokemonToCatch = {"Pokemon 1", "Pokemon 2", "Pokemon 3"}
-local pokemonToCatch = {"Scyther"} --If you have a pokemonToRole, don't put them here too, unless you want to catch that pokemon with any ability.
+local pokemonToCatch = {"Mankey"} --If you have a pokemonToRole, don't put them here too, unless you want to catch that pokemon with any ability.
 --##########################################################################################
 --If you want to catch Pokemon that are not registered as caught in your Pokedex, set true.
 local catchNotCaught = false
@@ -37,9 +37,9 @@ local typeBall = "Poké Ball"
 
 
 --Location you want to hunt. Example: location = "Dragons Den"
-local location = "Kanto Safari Zone - East"
+local location = "Cerulean Cave"
 --##########################################################################################
--- Put "Grass" for grass, "Water" for water, {x, y} for fishing cell, {x1, y1, x2, y2} for rectangle
+-- Put "Grass" for grass, "Water" for water, {x1, y1, x2, y2} for rectangle
 -- If you're using a rectangle, you can set more rectangles to hunt in just by adding 4 more parameters. Example: local area = {x1, y1, x2, y2, x1, y1, x2, y2}
 local area = "Grass"
 
@@ -88,6 +88,7 @@ local Lib = require "Pathfinder/Lib/lib"
 local map = nil
 
 function onStart()
+steps = getTotalSteps()
 healCounter = 0
 shinyCounter = 0
 catchCounter = 0
@@ -119,10 +120,13 @@ function onDialogMessage(message)
 		safariOver = false
 		log("You have visited the PokeCenter ".. healCounter .." times.")
     end
+	if stringContains(message, "Your safari time is over.") then 
+		safariOver = true
+	end
 end
 
 function onBattleMessage(wild)
-	if stringContains(wild, "A Wild SHINY ") then
+	if stringContains(wild, "A wild SHINY ") then
 		shinyCounter = shinyCounter + 1
 		wildCounter = wildCounter + 1
 		log("Info | Shineys encountered: " .. shinyCounter)
@@ -333,15 +337,6 @@ function isTeamUsable()
 	end
 end
 
-function updateFishing(list)
-	-- Moves to a position and uses rod	
-	if getPlayerX() == list[1] and getPlayerY() == list[2] then
-		return useItem(typeRod)
-	else
-		return moveToCell(list[1], list[2])
-	end
-end
-
 function updateTargetRect(list)
 	-- Every minutesToMove minutes, picks a random integer between 1 and #list / 4 to get a number corresponding to each rectangle in list	
 	if os.difftime(os.time(), rectTimer) > minutesToMove * 60 or rand == 0 or rand > #list / 4 or rand == tmpRand then
@@ -383,9 +378,7 @@ local location = location
 		if type(area) == "string" then
 			area = area:upper()
 		else
-			if #area == 2 then
-				return updateFishing(area)
-			elseif #area > 4 then
+			if #area > 4 then
 				return updateTargetRect(area)
 			elseif area[1] == area[3] or area[2] == area[4] then
 				return moveToLine(area)
@@ -482,7 +475,7 @@ usedRole = false
 roleMatched = false
 canNotSwitch = false
 failedRun = false
-local map = getMapName()
+local map = getAreaName()
 
 	if not safariOver then	
 		if isTeamSorted() then
