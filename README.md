@@ -1,4 +1,4 @@
-##Pathfinder for PokeOne+ v1.0.0
+## Pathfinder for PokeOne+ v1.0.2
 This script provides a module to move from a map A to a map B using the shortest path.  
 The Objective of this project is to provide a tool to simplify scripting in PokeOne+. So you don't have to use an elseif per map you're crossing.  
 It also provides advanced functionality, settings, and more...  
@@ -19,7 +19,7 @@ Use `LoadMe_Test.lua` to test the module, I recommand you [read](https://github.
 #####Know issues :
 
 * X map does not work! Not everything is currently implemented, I welcome help if you want to implement maps, make pull request on github.
-* Planning on dig and headbutt scripts. ( all you have to do is tell it where to go.)
+* Planning on discover and headbutt scripts. ( all you have to do is tell it where to go.)
 
 ## Contributors:
 
