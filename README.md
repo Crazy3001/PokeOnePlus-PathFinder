@@ -3,8 +3,9 @@ This script provides a module to move from a map A to a map B using the shortest
 The Objective of this project is to provide a tool to simplify scripting in PokeOne+. So you don't have to use an elseif per map you're crossing.  
 It also provides advanced functionality, settings, and more...  
 
-[For explanation on how to use the API read HOWTO](https://github.com/Crazy3001/PokeOnePlus-PathFinder/blob/master/HOWTO.md).  
-[If you want to know how the map system works or how to add maps](https://github.com/Crazy3001/PokeOnePlus-PathFinder/blob/master/ADDINGMAPS.md).  
+[For explanation on how to use the API read HOWTO](https://github.com/Crazy3001/PokeOnePlus-PathFinder/blob/master/Documentation/HOWTO.md).  
+[If you want to know how the map system works or how to add maps](https://github.com/Crazy3001/PokeOnePlus-PathFinder/blob/master/Documentation/ADDINGMAPS.md).  
+[If you want to see a list of map names](https://github.com/Crazy3001/PokeOnePlus-PathFinder/blob/master/Documentation/KANTOMAPLIST.md).  
 Use `LoadMe_Test.lua` to test the module, I recommand you [read](https://github.com/Crazy3001/PokeOnePlus-PathFinder/blob/master/LoadMe_Test.lua) it as well. 
 
 #####Features
