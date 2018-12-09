@@ -13,8 +13,7 @@ mount = false
 --You can use multiple areas and alternate between them randomly at a set time limit, specified below with minutesToMove (Example: location = {"Route 2", "Route 22", "Route 1"})
 location = {"Route 2_C", "Viridian Forest"}
 
--- Put "Grass" for grass, "Water" for water, {x1, y1, x2, y2} for rectangle
--- If you're using a rectangle, you can set more rectangles to hunt in just by adding 4 more parameters. Example: cellType = {x1, y1, x2, y2, x1, y1, x2, y2}
+-- Put "Grass" for grass, "Water" for water
 cellType = {"Grass"}
 		
 -- If you're using multiple rectangles, this is the amount of time in minutes that we'll stay in one rectangle before moving to a different one
@@ -137,23 +136,6 @@ function onLearningMove(moveName, pokemonIndex)
    forgetAnyMoveExcept(movesNotToForget)
 end
 
-function updateTargetRect(list)
-	-- Every minutesToMove minutes, picks a random integer between 1 and #list / 4 to get a number corresponding to each rectangle in list	
-	if os.difftime(os.time(), rectTimer) > minutesToMove * 60 or rand == 0 or rand > #list / 4 or rand == tmpRand then
-		rectTimer = os.time()
-		tmpRand = rand
-		rand = math.random(#list / 4)
-	end
-	
-	local n = (rand - 1) * 4
-	
-	if list[n + 1] == list[n + 3] or list[n + 2] == list[n + 4] then
-		return Game.moveToLine({list[n + 1], list[n + 2], list[n + 3], list[n + 4]})
-	else
-		return moveToRectangle(list[n + 1], list[n + 2], list[n + 3], list[n + 4])
-	end
-end
-
 function updateTargetArea(areaList, cellType)
 local area = getAreaName()
 	-- Every minutesToMove minutes, picks a random integer between 1 and #list / 4 to get a number corresponding to each rectangle in list	
@@ -164,15 +146,8 @@ local area = getAreaName()
 	end
 	if type(cellType) == "string" then
 		cellType = cellType:upper()
-	else
-		if #cellType > 4 then
-			return updateTargetRect(cellType)
-		elseif cellType[1] == cellType[3] or cellType[2] == cellType[4] then
-			return Game.moveToLine(cellType)
-		else
-			return moveToRectangle(cellType[1], cellType[2], cellType[3], cellType[4])
-		end
 	end
+
 	if cellType == "GRASS" then
 		if not pf.moveTo(area, areaList[rand]) then
 			return moveToGrass()
