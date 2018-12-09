@@ -6,7 +6,7 @@ author = "Crazy3001"
 				--#################################################--
 
 --If you have a mount equipped in game, set to true if you would like to use it. If no mount is equipped and is set to true, the bot will not move.
-mount = "false"
+mount = false
 				
 --Case Sensitive--
 --Put the name of the map you want to train at between "". (Example: location = {"Route 2"})
