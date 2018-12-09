@@ -8,43 +8,43 @@ author = "Crazy3001"
 --Case Sensitive--
 --Put the name of the map you want to train at between "". (Example: location = {"Route 2"})
 --You can use multiple areas and alternate between them randomly at a set time limit, specified below with minutesToMove (Example: location = {"Route 2", "Route 22", "Route 1"})
-local location = {"Route 2_C", "Viridian Forest"}
+location = {"Route 2_C", "Viridian Forest"}
 
 -- Put "Grass" for grass, "Water" for water, {x1, y1, x2, y2} for rectangle
 -- If you're using a rectangle, you can set more rectangles to hunt in just by adding 4 more parameters. Example: cellType = {x1, y1, x2, y2, x1, y1, x2, y2}
-local cellType = {"Grass"}
+cellType = {"Grass"}
 		
 -- If you're using multiple rectangles, this is the amount of time in minutes that we'll stay in one rectangle before moving to a different one
-local minutesToMove = 30
+minutesToMove = 30
 
 --Will catch any Pokemon that is not registered as owned in your Pokedex.
-local catchNotCaught = false
+catchNotCaught = false
 
 --the below is case-sensitive, add more moves by adding commas. example : catchThesePokemon = {"Pokemon 1", "Pokemon 2", "Pokemon 3"}--
 --Even if you set all other capture variables to false, we'll still try to catch these/this pokemon--
 --Leave an empty "" here if you aren't using it--
-local catchThesePokemon = {""}
+catchThesePokemon = {""}
 
 --When leveling, if there are any Pokemon you do not want to fight, put them in here. Example : evadeThesePokemon = {"Pokemon 1", "Pokemon 2", "Pokemon 3"}--
 --Leave an empty "" here if you aren't using it--
-local evadeThesePokemon = {""}
+evadeThesePokemon = {""}
 	
 --Will level your pokemon to this level then stop. Put 101 if EV Training or if you want level 100 Pokemon to fight.--
-local levelPokesTo = 16
+levelPokesTo = 16
 
 --What level you want your pokemon to start fight instead of switching out.
-local minLevel = 5
+minLevel = 5
 
 --The percentage of your last alive usable poke's health that we'll stop fighting at and go to pokecenter--
-local healthToRunAt = 20 
+healthToRunAt = 20 
 
 --Currently Not Working
 --Type of rod you want to use when fishing
-local typeRod = "Super Rod"
+typeRod = "Super Rod"
 
 --the below is case-sensitive, add more moves by adding commas. ex : movesNotToForget = {"Move 1", "Move 2", "Move 3"}--
 --Leave an empty "" here if you aren't using it--
-local movesNotToForget = {"Dig", "Cut", "Surf", "Flash", "Rock Smash", "Fly"}
+movesNotToForget = {"Dig", "Cut", "Surf", "Flash", "Rock Smash", "Fly"}
 		
 
 				--#################################################--
