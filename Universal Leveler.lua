@@ -1,4 +1,4 @@
-name = "Universal Leveler Beta - Version 0.1.1" 
+name = "Universal Leveler Beta - Version 0.2.0" 
 author = "Crazy3001"
 
 				--#################################################--
@@ -6,12 +6,13 @@ author = "Crazy3001"
 				--#################################################--
 
 --Case Sensitive--
---Put the name of the map you want to train at between "". {Example: location = "Route 2"}
-local location = "Saffron Railway Station"		
+--Put the name of the map you want to train at between "". (Example: location = {"Route 2"})
+--You can use multiple areas and alternate between them randomly at a set time limit, specified below with minutesToMove (Example: location = {"Route 2", "Route 22", "Route 1"})
+local location = {"Route 2_C", "Viridian Forest"}
 
--- Put "Grass" for grass, "Water" for water, {x, y} for fishing cell, {x1, y1, x2, y2} for rectangle
--- If you're using a rectangle, you can set more rectangles to hunt in just by adding 4 more parameters. Example: local area = {x1, y1, x2, y2, x1, y1, x2, y2}
-local area = {49, 18, 53, 18}
+-- Put "Grass" for grass, "Water" for water, {x1, y1, x2, y2} for rectangle
+-- If you're using a rectangle, you can set more rectangles to hunt in just by adding 4 more parameters. Example: cellType = {x1, y1, x2, y2, x1, y1, x2, y2}
+local cellType = {"Grass"}
 		
 -- If you're using multiple rectangles, this is the amount of time in minutes that we'll stay in one rectangle before moving to a different one
 local minutesToMove = 30
@@ -29,14 +30,15 @@ local catchThesePokemon = {""}
 local evadeThesePokemon = {""}
 	
 --Will level your pokemon to this level then stop. Put 101 if EV Training or if you want level 100 Pokemon to fight.--
-local levelPokesTo = 80
+local levelPokesTo = 16
 
 --What level you want your pokemon to start fight instead of switching out.
-local minLevel = 25
+local minLevel = 5
 
 --The percentage of your last alive usable poke's health that we'll stop fighting at and go to pokecenter--
-local healthToRunAt = 30 
+local healthToRunAt = 20 
 
+--Currently Not Working
 --Type of rod you want to use when fishing
 local typeRod = "Super Rod"
 
@@ -58,8 +60,10 @@ local movesNotToForget = {"Dig", "Cut", "Surf", "Flash", "Rock Smash", "Fly"}
 description = "Training at " .. location .. "." .. " Leveling pokemon to level " .. levelPokesTo .. ". Press Start"
 
 local pf = require "Pathfinder/MoveToApp"
-local Lib = require "Pathfinder/Lib/lib"
-local map = nil
+local Lib = require "Pathfinder/Lib/Lib"
+local Game = require "Pathfinder/Lib/Game"
+local Table = require "Pathfinder/Lib/Table"
+local area = nil
 
 function onStart()
     healCounter = 0
@@ -69,6 +73,7 @@ function onStart()
 	rand = 0 -- Used to represent each rectangle in area
 	tmpRand = 0 -- Used to make sure rand is different every time we call math.random
 	lineSwitch = false -- Used in moveToLine()
+	areaTimer = os.time()
 	rectTimer = os.time()
     log("Start botting.")
 end
@@ -129,74 +134,6 @@ function onLearningMove(moveName, pokemonIndex)
    forgetAnyMoveExcept(movesNotToForget)
 end
 
-function TableLength(T)
- local count = 0
- for _ in pairs(T) do count = count + 1 end
- return count
-end
-
-function isOnList(List)
-	result = false
-    if List[1] ~= "" then
-	    for i=1, TableLength(List), 1 do
-		    if getOpponentName() == List[i] then
-			    result = true
-		    end
-	    end
-    end
-    return result
-end
-
-function isOnCell(X, Y)
-	if getPlayerX() == X and getPlayerY() == Y then
-		return true
-	end
-	return false
-end
-
-function getPokemonIdWithItem(ItemName)	
-	for i=1, getTeamSize(), 1 do
-		if getPokemonHeldItem(i) == ItemName then
-			return i
-		end
-	end
-	return 0
-end
-
-function isSorted()
-	local pokemonsUsable = getTotalPokemonToLevelCount()
-	for pokemonId=1, pokemonsUsable, 1 do
-		if not isPokemonUsable(pokemonId) or getPokemonLevel(pokemonId) >= levelPokesTo then --Move it at bottom of the Team
-			Lib.log1time("Sorting Team, Please Wait...")
-			for pokemonId_ = pokemonsUsable + 1, getTeamSize(), 1 do
-				if isPokemonUsable(pokemonId_) and getPokemonLevel(pokemonId_) < levelPokesTo then
-					swapPokemon(pokemonId, pokemonId_)
-					return true
-				end
-			end
-		end
-	end
-	if not isTeamRangeSortedByLevelAscending(1, pokemonsUsable) then --Sort the team without not usable pokemons
-		Lib.log1time("Sorting Team, Please Wait...")
-		return sortTeamRangeByLevelAscending(1, pokemonsUsable)
-	end
-	if not isTeamRangeSortedByLevelAscending(pokemonsUsable + 1, getTeamSize()) then --Sort the team without not usable pokemons
-		Lib.log1time("Sorting Team, Please Wait...")
-		return sortTeamRangeByLevelAscending(pokemonsUsable + 1, getTeamSize())
-	end
-	Lib.log1time("Sorting Team, Please Wait...")
-	return false
-end
-
-function updateFishing(list)
-	-- Moves to a position and uses rod	
-	if getPlayerX() == list[1] and getPlayerY() == list[2] then
-		return useItem(rod)
-	else
-		return moveToCell(list[1], list[2])
-	end
-end
-
 function updateTargetRect(list)
 	-- Every minutesToMove minutes, picks a random integer between 1 and #list / 4 to get a number corresponding to each rectangle in list	
 	if os.difftime(os.time(), rectTimer) > minutesToMove * 60 or rand == 0 or rand > #list / 4 or rand == tmpRand then
@@ -208,165 +145,63 @@ function updateTargetRect(list)
 	local n = (rand - 1) * 4
 	
 	if list[n + 1] == list[n + 3] or list[n + 2] == list[n + 4] then
-		return moveToLine({list[n + 1], list[n + 2], list[n + 3], list[n + 4]})
+		return Game.moveToLine({list[n + 1], list[n + 2], list[n + 3], list[n + 4]})
 	else
 		return moveToRectangle(list[n + 1], list[n + 2], list[n + 3], list[n + 4])
 	end
 end
 
-function moveToLine(list)	
-	-- Alternates between 2 positions	
-	if lineSwitch then
-		if getPlayerX() == list[1] and getPlayerY() == list[2] then
-			lineSwitch = not lineSwitch
-		else
-			return moveToCell(list[1], list[2])
-		end
+function updateTargetArea(areaList, cellType)
+local area = getAreaName()
+	-- Every minutesToMove minutes, picks a random integer between 1 and #list / 4 to get a number corresponding to each rectangle in list	
+	if os.difftime(os.time(), areaTimer) > minutesToMove * 60 or rand == 0 or rand > #areaList or rand == tmpRand then
+		areaTimer = os.time()
+		tmpRand = rand
+		rand = math.random(#areaList)
+	end
+	if type(cellType) == "string" then
+		cellType = cellType:upper()
 	else
-		if getPlayerX() == list[3] and getPlayerY() == list[4] then
-			lineSwitch = not lineSwitch
+		if #cellType > 4 then
+			return updateTargetRect(cellType)
+		elseif cellType[1] == cellType[3] or cellType[2] == cellType[4] then
+			return Game.moveToLine(cellType)
 		else
-			return moveToCell(list[3], list[4])
+			return moveToRectangle(cellType[1], cellType[2], cellType[3], cellType[4])
 		end
 	end
-end
-
-function hasRemainingPP(i)
-    for m=1, 4, 1 do
-        if getPokemonMoveName(i, m) then
-            if getPokemonMovePower(i,m) >= 1 then
-                p = getPokemonMoveName(i,m)
-                if getRemainingPowerPoints(i,p) >= 1 then
-                    return true
-                end
-            end
-        end
-    end
-    Lib.log1time("######No More PP, Using Pokecenter######")
-    return false
-end
-
-function getFirstUsablePokemon()
-	for i=1, getTeamSize(), 1 do
-		if (isPokemonUsable(i) and hasRemainingPP(i) and getPokemonStatus(i) == "None") and (getPokemonLevel(i) == 100 or (getPokemonLevel(i) >= minLevel and getPokemonLevel(i) < levelPokesTo)) then
-			return i		
+	if cellType == "GRASS" then
+		if not pf.moveTo(area, areaList[rand]) then
+			return moveToGrass()
+		end
+	elseif cellType == "WATER" then
+		if not pf.moveTo(area, areaList[rand]) then
+			return moveToWater()
 		end
 	end
-	Lib.log1time("E01 | ######No More Usable Pokemon, Using Pokecenter######")
-	return 0
-end
-
-function getTotalUsablePokemonCount()
-	local count = 0
-	for i=1, getTeamSize(), 1 do
-		if (isPokemonUsable(i) and hasRemainingPP(i) and getPokemonStatus(i) == "None") and (getPokemonLevel(i) == 100 or (getPokemonLevel(i) >= minLevel and getPokemonLevel(i) < levelPokesTo)) then
-			count = count + 1
-		end
-	end
-	if count == 0 then
-		Lib.log1time("E02 | ######No More Usable Pokemon, Using Pokecenter######")
-	end
-	return count
-end
-
-function getFirstMaxLevelPokemon()
-	for i=1, getTeamSize(), 1 do
-		if isPokemonUsable(i) and hasRemainingPP(i) and getPokemonLevel(i) == 100 then
-			return i		
-		end
-	end
-	return 0
-end
-
-function getTotalMaxLevelPokemonCount()
-	local count = 0
-	for i=1, getTeamSize(), 1 do
-		if isPokemonUsable(i) and hasRemainingPP(i) and getPokemonLevel(i) >= 100 then
-			count = count + 1
-		end
-	end
-	return count
-end
-
-function getFirstPokemonToLevel()
-	for i=1, getTeamSize(), 1 do
-		if isPokemonUsable(i) and getPokemonLevel(i) < levelPokesTo then
-			return i		
-		end
-	end
-	Lib.log1time("E03 | ######No More Pokemon To Level Alive, Using Pokecenter######")
-	return 0
-end
-
-function getTotalPokemonToLevelCount()
-	local count = 0
-	for i=1, getTeamSize(), 1 do
-		if isPokemonUsable(i) and getPokemonLevel(i) < levelPokesTo then
-			count = count + 1
-		end
-	end
-	if count == 0 then
-		Lib.log1time("E04 | ######No More Pokemon To Level Alive, Using Pokecenter######")
-	end
-	return count
-end
-
-function allPokemonReachedTargetLevel()
-	local count = 0
-	for i=1, getTeamSize(), 1 do
-		if getPokemonLevel(i) >= levelPokesTo then
-			count = count + 1
-		end
-	end
-	if count == getTeamSize() then
-		Lib.log1time("######All Pokemon Reached Target Level, Logging Out######")
-		return true
-	end
-	return false
 end
 
 function onPathAction()
-local map = getAreaName()
+local area = getAreaName()
 local location = location
-canNotSwitch = false
-failedRun = false
-	if isSorted() then 
+
+	if Game.isSorted(levelPokesTo) then 
 		return true
 	end
 	
-	if not allPokemonReachedTargetLevel() then
-		if getTotalUsablePokemonCount() >= 1 and (getTotalPokemonToLevelCount() > 1 or (getTotalPokemonToLevelCount() == 1 and getPokemonHealthPercent(getFirstPokemonToLevel()) >= healthToRunAt)) then
-			if not pf.moveTo(map, location) then
-				if type(area) == "string" then
-					area = area:upper()
-				else
-					if #area == 2 then
-						return updateFishing(area)
-					elseif #area > 4 then
-						return updateTargetRect(area)
-					elseif area[1] == area[3] or area[2] == area[4] then
-						return moveToLine(area)
-					else
-						return moveToRectangle(area[1], area[2], area[3], area[4])
-					end
-				end
-				
-				if area == "GRASS" then
-					return moveToGrass()
-				elseif area == "WATER" then
-					return moveToWater()
-				end
-			end
-		else
-			pf.useNearestPokecenter(map)
-		end
+	if Game.needPokecenter() then
+		return pf.useNearestPokecenter(area)
+	end
+	
+	if not Game.allPokemonReachedTargetLevel(levelPokesTo) then
+		return updateTargetArea(location, cellType)
 	else
 		logout()
 	end
 end
 
 function onBattleAction()
-	if isWildBattle() and isOpponentShiny() or isOnList(catchThesePokemon) or (catchNotCaught and not isAlreadyCaught()) then
+	if isWildBattle() and isOpponentShiny() or Table.isInTable(catchThesePokemon) or (catchNotCaught and not isAlreadyCaught()) then
 		if isPokemonUsable(getActivePokemonNumber()) then
 			if useItem("Ultra Ball") or useItem("Great Ball") or useItem("Poké Ball") then
 				return
@@ -375,28 +210,28 @@ function onBattleAction()
 			return sendUsablePokemon() or sendAnyPokemon()
 		end
 	end
-	if isWildBattle() and not isOnList(evadeThesePokemon) then
-		if getTotalUsablePokemonCount() < 1 or (getTotalPokemonToLevelCount() < 1 or (getTotalPokemonToLevelCount() == 1 and getPokemonHealthPercent(getFirstPokemonToLevel()) < healthToRunAt)) then
+	if isWildBattle() and not Table.isInTable(evadeThesePokemon) then
+		if Game.getTotalUsablePokemonCount(minLevel, levelPokesTo) < 1 or (Game.getTotalPokemonToLevelCount(levelPokesTo) < 1 or (Game.getTotalPokemonToLevelCount(levelPokesTo) == 1 and getPokemonHealthPercent(Game.getFirstPokemonToLevel(levelPokesTo)) < healthToRunAt)) then
 			if isPokemonUsable(getActivePokemonNumber()) then
 				return run()
 			else
-				if getTotalUsablePokemonCount() >= 1 then
-					return sendPokemon(getFirstUsablePokemon()) 
+				if Game.getTotalUsablePokemonCount(minLevel, levelPokesTo) >= 1 then
+					return sendPokemon(Game.getFirstUsablePokemon(minLevel, levelPokesTo)) 
 				else 
 					return sendAnyPokemon()
 				end
 			end
 		elseif getPokemonLevel(getActivePokemonNumber()) < minLevel then
-			if getTotalUsablePokemonCount() >= 1 then
-				return sendPokemon(getFirstUsablePokemon()) 
+			if Game.getTotalUsablePokemonCount(minLevel, levelPokesTo) >= 1 then
+				return sendPokemon(Game.getFirstUsablePokemon(minLevel, levelPokesTo)) 
 			else 
 				return run() or sendAnyPokemon()
 			end
 		elseif failedRun then
 			Lib.log1time("###Failed Run###")
 			failedRun = false
-			if getTotalUsablePokemonCount() >= 1 then
-				return sendPokemon(getFirstUsablePokemon()) or attack()
+			if Game.getTotalUsablePokemonCount(minLevel, levelPokesTo) >= 1 then
+				return sendPokemon(Game.getFirstUsablePokemon(minLevel, levelPokesTo)) or attack()
 			else
 				return sendAnyPokemon() or attack()
 			end
@@ -405,23 +240,23 @@ function onBattleAction()
 			canNotSwitch = false
 			return run() or attack()
 		else
-			if isPokemonUsable(getActivePokemonNumber()) and hasRemainingPP(getActivePokemonNumber()) then
-				return attack() or sendPokemon(getFirstUsablePokemon()) or run()
+			if isPokemonUsable(getActivePokemonNumber()) and Game.hasRemainingPP(getActivePokemonNumber()) then
+				return attack() or sendPokemon(Game.getFirstUsablePokemon(minLevel, levelPokesTo)) or run()
 			else
-				if getTotalUsablePokemonCount() >= 1 then
-					return sendPokemon(getFirstUsablePokemon())
+				if Game.getTotalUsablePokemonCount(minLevel, levelPokesTo) >= 1 then
+					return sendPokemon(Game.getFirstUsablePokemon(minLevel, levelPokesTo))
 				else
 					return run() or sendAnyPokemon()
 				end
 			end
 		end		
 	else
-		if isPokemonUsable(getActivePokemonNumber()) and hasRemainingPP(getActivePokemonNumber()) then
+		if isPokemonUsable(getActivePokemonNumber()) and Game.hasRemainingPP(getActivePokemonNumber()) then
 			if failedRun then
 				Lib.log1time("###Failed Run###")
 				failedRun = false
-				if getTotalUsablePokemonCount() >= 1 then
-					return sendPokemon(getFirstUsablePokemon()) or attack()
+				if Game.getTotalUsablePokemonCount(minLevel, levelPokesTo) >= 1 then
+					return sendPokemon(Game.getFirstUsablePokemon(minLevel, levelPokesTo)) or attack()
 				else
 					return sendAnyPokemon() or attack()
 				end
@@ -430,10 +265,10 @@ function onBattleAction()
 				canNotSwitch = false
 				return run() or attack()
 			else
-				return run() or sendPokemon(getFirstUsablePokemon()) or attack()
+				return run() or sendPokemon(Game.getFirstUsablePokemon(minLevel, levelPokesTo)) or attack()
 			end
 		else
-			return run() or sendPokemon(getFirstUsablePokemon()) or attack()
+			return run() or sendPokemon(Game.getFirstUsablePokemon(minLevel, levelPokesTo)) or attack()
 		end
 	end
 end
