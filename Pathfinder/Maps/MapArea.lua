@@ -300,7 +300,7 @@ return {
 	["Grannys House"] = {{81, 60, 88, 66}}, 
 	["Pewter City Museum"] = {{4, 47, 28, 60}}, 
 	["Pewter Gym"] = {{7, 91, 23, 116}}, 
-	["Pewter Pokémon Center"] = {{63, 96, 74, 117}}, 
+	["Pewter Pokémon Center"] = {{63, 96, 74, 126}}, 
 	["Pewter Pokémon Mart"] = {{9, 10, 23, 22}}, 
 	["Route 2 East House"] = {{129, 65, 135, 72}}
 },

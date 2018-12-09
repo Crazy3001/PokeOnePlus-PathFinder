@@ -1,5 +1,17 @@
 local Table = {}
 
+function Table.isInTable(List)
+	result = false
+    if List[1] ~= "" then
+	    for i=1, Table.tablelength(List), 1 do
+		    if getOpponentName() == List[i] then
+			    result = true
+		    end
+	    end
+    end
+    return result
+end
+
 -- create a new copy of t1
 function Table.clone(t1)
     local t2 = {}

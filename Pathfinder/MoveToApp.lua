@@ -8,6 +8,7 @@ local pf            = require (cdpath .. "Lib/MoveTo/MoveTo")
 local DialogSolver  = require (cdpath .. "Lib/MoveTo/DialogSolver")
 local moveToMapCell = require (cdpath .. "Lib/MoveTo/MoveToMapCell")
 local Pokecenter    = require (cdpath .. "Lib/MoveTo/Pokecenter")
+local Pokemart      = require (cdpath .. "Lib/MoveTo/Pokemart")
 local MapPath       = require (cdpath .. "Lib/MoveTo/MapPath")
 
 return {
@@ -16,6 +17,7 @@ return {
 	moveToMapCell = moveToMapCell.moveToMapCell,
 	moveToPC = Pokecenter.moveToPC,
 	useNearestPokecenter = Pokecenter.useNearestPokecenter,
+	useNearestPokemart = Pokemart.useNearestPokemart,
 	mapName = pf.mapName,
 	getPathInMap = MapPath.getPath,
 }

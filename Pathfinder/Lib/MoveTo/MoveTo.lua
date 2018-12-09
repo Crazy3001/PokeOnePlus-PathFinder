@@ -4,7 +4,7 @@ local function rmlast(str) return str:sub(1, -2):match(".+[%./]") or "" end -- r
 local cppdpath = nTimes(3, rmlast, cpath) -- callee parent of parent dir path
 local cpppdpath = rmlast(cppdpath) -- callee parent parent of parent dir path
 
-local version = "1.0.2"
+local version = "1.0.3"
 
 local aStar               = require (cppdpath .. "Lib/lua-astar/AStar")
 local Lib                 = require (cppdpath .. "Lib/Lib")
@@ -316,7 +316,7 @@ local function moveTo(map, dest)
 	end
 	playerNode = getPlayerNode(map)
 	dest = mapsToNodes(dest)
-	if not isMounted() and not isSurfing() and isOutside() then
+	if mount and not isMounted() and not isSurfing() and isOutside() then
 		assert(useEquippedMount(), "Error using Mount.")
 		return true
 	elseif checkNpcWith("Emma's Pokéball") then

@@ -1,5 +1,5 @@
 ## Read first
-Last updated for v1.0.0  
+Last updated for v1.0.3
 This is a guide on possibilities provided by the PathFinder module, and how to use them.
 
 I strongly advice you [read](https://github.com/Crazy3001/PokeOnePlus-PathFinder/blob/master/LoadMe_Test.lua) the `LoadMe_Test.lua.` As it is the simplest application of the module you can make.  

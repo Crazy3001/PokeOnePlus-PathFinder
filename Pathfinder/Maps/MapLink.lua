@@ -139,7 +139,7 @@ mapLink["Pallet Town"] = {["Route 21_A"] = {{146, 204, 150, 204}}, ["Route 1"] =
 mapLink["Pewter City Museum"] = {["Pewter City"] = {{12, 60}}}
 mapLink["Pewter City"] = {["Pewter Pokémon Center"] = {{35, 48}}, ["Pewter Pokémon Mart"] = {{52, 39}}, ["Babsis House"] = {{54, 25}}, ["Pewter Gym"] = {{30, 26}}, ["Pewter City Museum"] = {{30, 11}}, ["Daves House"] = {{21, 54}}, ["Route 2_C"] = {{20, 62, 21, 62}}, ["Route 3"] = {{86, 45, 86, 49}}}
 mapLink["Pewter Gym"] = {["Pewter City"] = {{15, 116}}}
-mapLink["Pewter Pokémon Center"] = {["Pewter City"] = {{68, 117, 69, 117}}}
+mapLink["Pewter Pokémon Center"] = {["Pewter City"] = {{68, 126, 69, 126}}}
 mapLink["Pewter Pokémon Mart"] = {["Pewter City"] = {{14, 22, 15, 22}}}
 mapLink["Player House 2F"] = {["Player House"] = {{73, 7, 73, 7}}}
 mapLink["Player House"] = {["Pallet Town"] = {{12, 13, 13, 13}}, ["Player House 2F"] = {{19, 6, 19, 7}}}
