@@ -1,4 +1,4 @@
-name = "Universal Leveler Beta - Version 0.2.0" 
+name = "Universal Leveler Beta - Version 0.2.1" 
 author = "Crazy3001"
 
 				--#################################################--
@@ -57,7 +57,7 @@ local movesNotToForget = {"Dig", "Cut", "Surf", "Flash", "Rock Smash", "Fly"}
 				--#################################################--
 
 				
-description = "Training at " .. location .. "." .. " Leveling pokemon to level " .. levelPokesTo .. ". Press Start"
+description = "Leveling pokemon to level " .. levelPokesTo .. ". Press Start"
 
 local pf = require "Pathfinder/MoveToApp"
 local Lib = require "Pathfinder/Lib/Lib"
@@ -183,7 +183,6 @@ end
 
 function onPathAction()
 local area = getAreaName()
-local location = location
 
 	if Game.isSorted(levelPokesTo) then 
 		return true
@@ -201,6 +200,11 @@ local location = location
 end
 
 function onBattleAction()
+
+	if minLevel == nil or levelPokesTo == nil then
+		return run() or attack()
+	end
+
 	if isWildBattle() and isOpponentShiny() or Table.isInTable(catchThesePokemon) or (catchNotCaught and not isAlreadyCaught()) then
 		if isPokemonUsable(getActivePokemonNumber()) then
 			if useItem("Ultra Ball") or useItem("Great Ball") or useItem("Poké Ball") then
