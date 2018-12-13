@@ -273,7 +273,7 @@ return {
 	["Mt. Moon"] = {{90, 12, 135, 49}}
 },
 ["kanto_i_mtmoon_pokecenter"] = {
-	["Mt. Moon Pokémon Center"] = {{4, 4, 15, 25}}
+	["Mt. Moon Pokémon Center"] = {{55, 34, 82, 57}}
 },
 ["kanto_i_mtsilver"] = {
 	["Mt. Silver 1F_A"] = {{90, 70, 113, 90}, {80, 78, 89, 90}, {79, 80, 79, 87}, {37, 81, 78, 89}}, --bottom
