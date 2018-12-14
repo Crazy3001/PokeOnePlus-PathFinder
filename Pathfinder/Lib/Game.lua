@@ -285,4 +285,19 @@ function Game.moveToLine(list)
 	end
 end
 
+function Game.getNpcArea(map, x, y)
+	local map = getMapName()
+	local npcInRectangle = Lib.inRectangle(x, y)
+	if mapAreas[map] then
+		for mapArea, locs in pairs(mapAreas[map]) do
+			for _, rect in ipairs(locs) do
+				if npcInRectangle(table.unpack(rect)) then
+					return mapArea
+				end
+			end
+		end
+		error("Pathfinder --> sub map could not be defined, map: " .. map .. "  x: " .. x .. "  y: " .. y)
+	end
+end
+
 return Game
