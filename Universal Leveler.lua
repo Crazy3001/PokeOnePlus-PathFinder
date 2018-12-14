@@ -11,11 +11,11 @@ mount = false
 --Case Sensitive--
 --Put the name of the map you want to train at between "". (Example: location = {"Route 2"})
 --You can use multiple areas and alternate between them randomly at a set time limit, specified below with minutesToMove (Example: location = {"Route 2", "Route 22", "Route 1"})
-location = {"Victory Road 1F"}
+location = {"Route 1"}
 
 -- Put "Grass" for grass, "Water" for water, {x1, y1, x2, y2} for rectangle
 -- If you're using a rectangle, you can set more rectangles to hunt in just by adding 4 more parameters. Example: local area = {x1, y1, x2, y2, x1, y1, x2, y2}
-cellType = {33, 50, 39, 60}
+cellType = "Grass"
 		
 -- If you're using multiple rectangles, this is the amount of time in minutes that we'll stay in one rectangle before moving to a different one
 minutesToMove = 30
