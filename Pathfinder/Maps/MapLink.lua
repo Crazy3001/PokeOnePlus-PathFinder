@@ -150,7 +150,7 @@ mapLink["Pokémon Lab Room 3"] = {["Pokémon Lab"] = {{11, 134}}}
 mapLink["Pokémon Lab"] = {["Cinnabar Island"] = {{6, 15}}, ["Pokémon Lab Room 1"] = {{17, 7}}, ["Pokémon Lab Room 2"] = {{23, 7}}, ["Pokémon Lab Room 3"] = {{29, 7}}}
 mapLink["Pokémon League"] = {["Route 23_B"] = {{40, 55}}, ["Pokémon League Bathroom"] = {{40, 23}}}
 mapLink["Pokémon League Bathroom"] = {["Pokémon League"] = {{136, 35, 137, 35}}}
-mapLink["Pokémon League Reception"] = {["Route 22"] = {{43, 22}}, ["Route 23_A"] = {{25, 11}}, ["Route 28_A"] = {{7, 22}}
+mapLink["Pokémon League Reception"] = {["Route 22"] = {{43, 22}}, ["Route 23_A"] = {{25, 11}}, ["Route 28_A"] = {7, 22}}
 mapLink["Pokémon Mansion 2F_A"] = {["Pokémon Mansion"] = {{9, 71, 9, 72}}, ["Pokémon Mansion 3F_B"] = {{13, 71, 13, 72}}, ["Pokémon Mansion 3F_A"] = {{13, 60, 13, 61}}}
 mapLink["Pokémon Mansion 2F_B"] = {["Pokémon Mansion 3F_A"] = {{37, 78, 37, 79}}}
 mapLink["Pokémon Mansion 3F_A"] = {["Pokémon Mansion 2F_A"] = {{9, 125, 9, 126}}, ["Pokémon Mansion"] = {{20, 140, 22, 140}, {25, 140, 25, 140}}, ["Pokémon Mansion 2F_B"] = {{36, 140, 36, 141}}}
