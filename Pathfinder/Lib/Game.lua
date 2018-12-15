@@ -164,6 +164,18 @@ function Game.getTotalPokemonToLevelCount(levelPokesTo)
 	return count
 end
 
+function Game.getTotalUsablePokemonToLevelCount(levelPokesTo)
+	local count = 0
+	for i=1, getTeamSize(), 1 do
+		if isPokemonUsable(i) and Game.hasRemainingPP(i) and getPokemonLevel(i) < levelPokesTo then
+			count = count + 1
+		end
+	end
+	if count == 0 then
+	end
+	return count
+end
+
 function Game.allPokemonReachedTargetLevel(levelPokesTo)
 	local count = 0
 	for i=1, getTeamSize(), 1 do
@@ -243,9 +255,9 @@ end
 function Game.needPokecenter()
 	if getTeamSize() <= 1 then
 		return false
-	elseif Game.getTotalUsablePokemonCount(minLevel) > 1 and Game.getTotalPokemonToLevelCount(levelPokesTo) > 1 then
+	elseif Game.getTotalUsablePokemonCount(minLevel) > 1 and Game.getTotalUsablePokemonToLevelCount(levelPokesTo) > 1 then
 		return false
-	elseif Game.getTotalUsablePokemonCount(minLevel) >= 1 and Game.getTotalPokemonToLevelCount(levelPokesTo) == 1 and getPokemonHealthPercent(Game.getFirstPokemonToLevel(levelPokesTo)) >= 20 then
+	elseif Game.getTotalUsablePokemonCount(minLevel) >= 1 and Game.getTotalUsablePokemonToLevelCount(levelPokesTo) == 1 and getPokemonHealthPercent(Game.getFirstPokemonToLevel(levelPokesTo)) >= 20 then
 		return false
 	end
 	return true

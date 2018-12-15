@@ -8,9 +8,9 @@ local BoulderQuest = require "Pathfinder/Quests/BoulderQuest"
 local CascadeQuest = require "Pathfinder/Quests/CascadeQuest"
 
 
-local mount = false
+mount = false
 --local discover = true
-local movesNotToForget = {"Dig", "Cut", "Surf", "Flash", "Rock Smash", "Fly", "False Swipe"}
+movesNotToForget = {"Dig", "Cut", "Surf", "Flash", "Rock Smash", "Fly", "False Swipe"}
 minutesToMove = 10
 starter = "Random" --"Bulbasaur","Charmander","Squirtle" or "Random"
 fossil = "Random" 
@@ -127,14 +127,14 @@ end
 function onPathAction()
 local area = getAreaName()
 
-	if Game.minTeamLevel() < 10 then
+	if Game.minTeamLevel() < 8 then
+		minLevel = 4
+		levelPokesTo = 8
+	elseif Game.minTeamLevel() >= 8 and Game.minTeamLevel() < 13 then
 		minLevel = 5
-		levelPokesTo = 10
-	elseif Game.minTeamLevel() >= 10 and Game.minTeamLevel() < 15 then
-		minLevel = 5
-		levelPokesTo = 15
-	elseif Game.minTeamLevel() >= 15 and Game.minTeamLevel() < 20 then
-		minLevel = 10
+		levelPokesTo = 13
+	elseif Game.minTeamLevel() >= 13 and Game.minTeamLevel() < 20 then
+		minLevel = 8
 		levelPokesTo = 20
 	end
 		
@@ -188,15 +188,7 @@ function onBattleAction()
 	if isWildBattle() then
 
 		if Game.getTotalUsablePokemonCount(minLevel) < 1 or (Game.getTotalPokemonToLevelCount(levelPokesTo) < 1 or (Game.getTotalPokemonToLevelCount(levelPokesTo) == 1 and getPokemonHealthPercent(Game.getFirstPokemonToLevel(levelPokesTo)) < 20)) then
-			--[[if isPokemonUsable(getActivePokemonNumber()) then]]
 			return run() or attack() or sendAnyPokemon() or useAnyMove()
-			--[[else
-				if Game.getTotalUsablePokemonCount(minLevel) >= 1 then
-					return sendPokemon(Game.getFirstUsablePokemon(minLevel)) 
-				else 
-					return sendAnyPokemon() or run() or attack()
-				end
-			end]]
 		elseif getPokemonLevel(getActivePokemonNumber()) < minLevel then
 			if Game.getTotalUsablePokemonCount(minLevel) >= 1 then
 				return sendPokemon(Game.getFirstUsablePokemon(minLevel)) 
