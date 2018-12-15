@@ -7,12 +7,11 @@ local mapAreas = require "Pathfinder/Maps/MapArea"
 local BoulderQuest = require "Pathfinder/Quests/BoulderQuest"
 local CascadeQuest = require "Pathfinder/Quests/CascadeQuest"
 
-local area = nil
-local mount = false
-local discover = true
-minutesToMove = 10
-local movesNotToForget = {"Dig", "Cut", "Surf", "Flash", "Rock Smash", "Fly", "False Swipe"}
 
+local mount = false
+--local discover = true
+local movesNotToForget = {"Dig", "Cut", "Surf", "Flash", "Rock Smash", "Fly", "False Swipe"}
+minutesToMove = 10
 starter = "Random" --"Bulbasaur","Charmander","Squirtle" or "Random"
 fossil = "Random" 
 --dojo = "Random"
@@ -55,7 +54,7 @@ local blacklist = {
 	 "Drowzee",
 	 "Ledyba", 
 }
-
+local area = nil
 
 function onStart()
 
@@ -82,8 +81,24 @@ function onStop()
 
 end
 
+function getNpcArea(map, npcX, npcY)
+	local map = getMapName()
+	local npcInRectangle = Lib.inRectangle(npcX, npcY)
+	if mapAreas[map] then
+		for mapArea, locs in pairs(mapAreas[map]) do
+			for _, rect in ipairs(locs) do
+				if npcInRectangle(table.unpack(rect)) then
+					return mapArea
+				end
+			end
+		end
+		error("Pathfinder --> sub map could not be defined, map: " .. map .. "  x: " .. x .. "  y: " .. y)
+	end
+end
+
 function updateTargetArea(areaList, cellType)
 local area = getAreaName()
+
 	-- Every minutesToMove minutes, picks a random integer between 1 and #list / 4 to get a number corresponding to each rectangle in list	
 	if os.difftime(os.time(), areaTimer) > minutesToMove * 60 or rand == 0 or rand > #areaList or rand == tmpRand then
 		areaTimer = os.time()
@@ -110,8 +125,6 @@ end
 
 function onPathAction()
 local area = getAreaName()
-log(minLevel)
-log(levelPokesTo)
 
 	if Game.minTeamLevel() < 10 then
 		minLevel = 5
@@ -158,7 +171,7 @@ function onBattleAction()
 		end
 	end
 
-	if isWildBattle() and (isOpponentShiny() or (not Table.isInTable(blacklist) and not isAlreadyCaught() and getOpponentLevel() >= 5 and getOpponentHealthPercent() <= 50)) then
+	if isWildBattle() and (isOpponentShiny() or (not Table.isInTable(blacklist) and not isAlreadyCaught() and getOpponentLevel() >= 4 and getOpponentHealthPercent() <= 50)) then
 
 		if isPokemonUsable(getActivePokemonNumber()) then
 			if useItem("Ultra Ball") or useItem("Great Ball") or useItem("Poké Ball") or useItem("Luxury Ball") then
@@ -210,8 +223,54 @@ function onBattleAction()
 end
 
 function onBattleMessage(message)
+
+end
+
+function onDialogMessage(message)
+	--Boulder
+	if stringContains(message, "You should visit the Poké Center and Poké Mart! Both are useful places for aspiring trainers such as yourself.") then
+		oldMan = false
+	end
+	if (stringContains(message, "The Poké Mart, where you can buy items, is not far away. Go take a look!") or stringContains(message, "There you go, take care of them!")) and oldMan == false then
+		oldMan = true
+		carl = false
+	end
+	if (stringContains(message, "She can teach you something about Pokémon!") or stringContains(message, "How may I help you?")) and carl == false then
+		carl = true
+		dizzy = false
+	end
+	if stringContains(message, "If not, feel free to use the computers!") then
+		dizzy = true
+	end
+	if stringContains(message, "Have you already found Lara? Please, look for her!") then
+		lara = false
+	end
+	if stringContains(message, "Some Pokémon only appear rarely...") or stringContains(message, "Feel free to explore the rest of the forest as you like!") then
+		lara = true
+	end
 	if stringContains(message, "Go to the Cerulean City Gym and test your abilities!") then
 		Lib.log1time("Boulder Badge Obtained!")
+	end
+	--Cascade
+	if stringContains(message, "You find them in craters, like the ones just down there. Go, take a look, I'm sure you will find one there!") or stringContains(message, "You should find a Moon Stone there!") then
+		moonStone = false
+	end
+	if stringContains(message, "Obtained Moon Stone x1") then
+		moonStone = true
+	end
+	if stringContains(message, "Robby and Charles! Try to find and beat them!") then
+		kent = false
+	end
+	if stringContains(message, "Please tell me you also defeated Kent...") then
+		kent = true
+		robby = false
+	end
+	if stringContains(message, "And I've lost again...") then
+		robby = true
+		charles = false
+	end
+	if stringContains(message, "You won against my friends? Great, thanks a lot!") then
+		charles = true
 	end
 end
 

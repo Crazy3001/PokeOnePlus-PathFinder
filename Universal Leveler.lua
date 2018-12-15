@@ -1,4 +1,4 @@
-name = "Universal Leveler Beta - Version 0.2.2" 
+name = "Universal Leveler Beta - Version 0.2.3" 
 author = "Crazy3001"
 
 				--#################################################--
@@ -13,7 +13,7 @@ mount = false
 --You can use multiple areas and alternate between them randomly at a set time limit, specified below with minutesToMove (Example: location = {"Route 2", "Route 22", "Route 1"})
 location = {"Route 1"}
 
--- Put "Grass" for grass, "Water" for water, {x1, y1, x2, y2} for rectangle
+-- Including quotations, put "Grass" for grass, "Water" for water, "Cave" for cave, {x1, y1, x2, y2} for rectangle
 -- If you're using a rectangle, you can set more rectangles to hunt in just by adding 4 more parameters. Example: local area = {x1, y1, x2, y2, x1, y1, x2, y2}
 cellType = "Grass"
 		
@@ -23,7 +23,7 @@ minutesToMove = 30
 --Will catch any Pokemon that is not registered as owned in your Pokedex.
 catchNotCaught = false
 
---the below is case-sensitive, add more moves by adding commas. example : catchThesePokemon = {"Pokemon 1", "Pokemon 2", "Pokemon 3"}--
+--the below is case-sensitive, add more moves by adding commas. example : catchThesePokemon = {"Mankey", "Pikachu", "Gastly"}--
 --Even if you set all other capture variables to false, we'll still try to catch these/this pokemon--
 --Leave an empty "" here if you aren't using it--
 catchThesePokemon = {""}
@@ -39,7 +39,7 @@ healthToRunAt = 20
 
 --the below is case-sensitive, add more moves by adding commas. ex : movesNotToForget = {"Move 1", "Move 2", "Move 3"}--
 --Leave an empty "" here if you aren't using it--
-movesNotToForget = {"Dig", "Cut", "Surf", "Flash", "Rock Smash", "Fly"}
+movesNotToForget = {"Dig", "Cut", "Surf", "Flash", "Rock Smash", "Fly", "False Swipe"}
 		
 
 				--#################################################--
@@ -196,6 +196,10 @@ local area = getAreaName()
 	elseif cellType == "WATER" then
 		if not pf.moveTo(area, areaList[rand]) then
 			return moveToWater()
+		end
+	elseif cellType == "CAVE" then
+		if not pf.moveTo(area, areaList[rand]) then
+			return moveToEncounterWild()
 		end
 	end
 end
