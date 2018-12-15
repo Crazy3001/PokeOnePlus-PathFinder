@@ -53,6 +53,7 @@ local blacklist = {
 	 "Spearow",
 	 "Drowzee",
 	 "Ledyba", 
+	 "Ledian", 
 }
 local area = nil
 
@@ -252,26 +253,7 @@ function onDialogMessage(message)
 		Lib.log1time("Boulder Badge Obtained!")
 	end
 	--Cascade
-	if stringContains(message, "You find them in craters, like the ones just down there. Go, take a look, I'm sure you will find one there!") or stringContains(message, "You should find a Moon Stone there!") then
-		moonStone = false
-	end
-	if stringContains(message, "Obtained Moon Stone x1") then
-		moonStone = true
-	end
-	if stringContains(message, "Robby and Charles! Try to find and beat them!") then
-		kent = false
-	end
-	if stringContains(message, "Please tell me you also defeated Kent...") then
-		kent = true
-		robby = false
-	end
-	if stringContains(message, "And I've lost again...") then
-		robby = true
-		charles = false
-	end
-	if stringContains(message, "You won against my friends? Great, thanks a lot!") then
-		charles = true
-	end
+
 end
 
 function onSystemMessage(message)
