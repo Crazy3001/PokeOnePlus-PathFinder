@@ -37,16 +37,21 @@ local map = getMapName()
 	end
 
 	if moonStone == false then
+		Lib.log1time("Getting Item: Moonstone")
 		talkToNpcOnCell(105, 69)		
 	elseif kent == false then
+		Lib.log1time("Talking to NPC: Robby")
 		talkToNpcOnCell(125, 81)		
 	elseif robby == false then
+		Lib.log1time("Talking to NPC: Charles")
 		talkToNpcOnCell(142, 60)
 	elseif charles == false then
+		Lib.log1time("Talking to NPC: Kent")
 		talkToNpcOnCell(131, 54)
 
-	elseif Game.minTeamLevel() < 20 then
-		levelPokesTo = 20
+	elseif Game.minTeamLevel() < 18 then
+		levelPokesTo = 18
+		Lib.log1time("Training Until All Pokemon Are Level 18")
 		return updateTargetArea(cascadeTraining1, "Encounter")
 	
 	--[[else
@@ -63,6 +68,29 @@ local map = getMapName()
 		end]]
     end
 	
+end
+
+function onDialogMessage(message)
+	if stringContains(message, "You find them in craters, like the ones just down there. Go, take a look, I'm sure you will find one there!") or stringContains(message, "You should find a Moon Stone there!") then
+		moonStone = false
+	end
+	if stringContains(message, "Obtained Moon Stone x1") then
+		moonStone = true
+	end
+	if stringContains(message, "Robby and Charles! Try to find and beat them!") then
+		kent = false
+	end
+	if stringContains(message, "Please tell me you also defeated Kent...") then
+		kent = true
+		robby = false
+	end
+	if stringContains(message, "And I've lost again...") then
+		robby = true
+		charles = false
+	end
+	if stringContains(message, "You won against my friends? Great, thanks a lot!") then
+		charles = true
+	end
 end
 
 return CascadeQuest

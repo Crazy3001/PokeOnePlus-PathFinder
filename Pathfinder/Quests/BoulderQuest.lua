@@ -38,6 +38,7 @@ local map = getMapName()
 	end
 
 	if getTeamSize() == 0 then
+		Lib.log1time("Talking to NPC: Prof. Oak")
 		if not pf.moveTo(area, "Oak's Lab") then
 			if starter == "Random" then
 				pushDialogAnswer(starters[math.random(#starters)])
@@ -49,14 +50,17 @@ local map = getMapName()
 		end
 		
 	elseif oldMan == false then
+		Lib.log1time("Talking to NPC: Nurse Joy")
 		if not pf.moveTo(area, "Viridian Pokémon Center") then
 			talkToNpcOnCell(9, 119)
 		end
 	elseif carl == false then
+		Lib.log1time("Talking to NPC: Carl")
 		if not pf.moveTo(area, "Viridian Pokémon Mart") then
 			talkToNpcOnCell(10, 68)
 		end
 	elseif dizzy == false then
+		Lib.log1time("Talking to NPC: Dizzy")
 		if not pf.moveTo(area, "Trainers School") then
 			talkToNpcOnCell(14, 8)
 		end
@@ -65,14 +69,17 @@ local map = getMapName()
 		talkToNpcOnCell(20, 52)
 		
 	elseif Game.minTeamLevel() < 10 then
-		levelPokesTo = 10	
+		levelPokesTo = 10
+		Lib.log1time("Training Until All Pokemon Are Level 10")
 		return updateTargetArea(boulderTraining1, "Grass")
 		
 	elseif Game.minTeamLevel() >= 10 and Game.minTeamLevel() < 15 then
-		levelPokesTo = 15		
+		levelPokesTo = 15
+		Lib.log1time("Training Until All Pokemon Are Level 15")
 		return updateTargetArea(boulderTraining2, "Grass")
 		
 	elseif Game.minTeamLevel() >= 15 then
+		Lib.log1time("Going To First Gym!")
 		if not pf.moveTo(area, "Pewter Gym") then
 			return talkToNpcOnCell(15,92)
 		end
