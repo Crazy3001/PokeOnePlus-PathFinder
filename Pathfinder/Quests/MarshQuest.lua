@@ -29,7 +29,7 @@ local map = getMapName()
 			else
 				if getNpcData(marshNpcList[npc]).isBattler and getNpcData(marshNpcList[npc]).canBattle then
 					Lib.log1time("Battling NPC: " .. marshNpcList[npc] .. ".")
-					return pf.moveTo(area, Game.getNpcArea(map, npcX, npcY))
+					return pf.moveTo(area, getNpcArea(map, getNpcData(boulderNpcList[npc]).x, getNpcData(boulderNpcList[npc]).y))
 				end
 			end
 		end

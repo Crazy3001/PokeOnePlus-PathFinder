@@ -31,7 +31,7 @@ local map = getMapName()
 			else
 				if getNpcData(boulderNpcList[npc]).isBattler and getNpcData(boulderNpcList[npc]).canBattle then
 					Lib.log1time("Battling NPC: " .. boulderNpcList[npc] .. ".")
-					return pf.moveTo(area, Game.getNpcArea(map, npcX, npcY))
+					return pf.moveTo(area, getNpcArea(map, getNpcData(boulderNpcList[npc]).x, getNpcData(boulderNpcList[npc]).y))
 				end
 			end
 		end
@@ -68,17 +68,17 @@ local map = getMapName()
 		Lib.log1time("Talking to NPC: Lara")
 		talkToNpcOnCell(20, 52)
 		
-	elseif Game.minTeamLevel() < 10 then
-		levelPokesTo = 10
-		Lib.log1time("Training Until All Pokemon Are Level 10")
+	elseif Game.minTeamLevel() < 8 then
+		levelPokesTo = 8
+		Lib.log1time("Training Until All Pokemon Are Level " .. levelPokesTo .. ".")
 		return updateTargetArea(boulderTraining1, "Grass")
 		
-	elseif Game.minTeamLevel() >= 10 and Game.minTeamLevel() < 15 then
-		levelPokesTo = 15
-		Lib.log1time("Training Until All Pokemon Are Level 15")
+	elseif Game.minTeamLevel() >= 8 and Game.minTeamLevel() < 13 then
+		levelPokesTo = 13
+		Lib.log1time("Training Until All Pokemon Are Level " .. levelPokesTo .. ".")
 		return updateTargetArea(boulderTraining2, "Grass")
 		
-	elseif Game.minTeamLevel() >= 15 then
+	elseif Game.minTeamLevel() >= 13 then
 		Lib.log1time("Going To First Gym!")
 		if not pf.moveTo(area, "Pewter Gym") then
 			return talkToNpcOnCell(15,92)

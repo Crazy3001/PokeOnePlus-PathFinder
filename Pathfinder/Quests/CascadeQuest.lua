@@ -30,7 +30,7 @@ local map = getMapName()
 			else
 				if getNpcData(cascadeNpcList[npc]).isBattler and getNpcData(cascadeNpcList[npc]).canBattle then
 					Lib.log1time("Battling NPC: " .. cascadeNpcList[npc] .. ".")
-					return pf.moveTo(area, Game.getNpcArea(map, npcX, npcY))
+					return pf.moveTo(area, getNpcArea(map, getNpcData(boulderNpcList[npc]).x, getNpcData(boulderNpcList[npc]).y))
 				end
 			end
 		end
@@ -51,7 +51,7 @@ local map = getMapName()
 
 	elseif Game.minTeamLevel() < 18 then
 		levelPokesTo = 18
-		Lib.log1time("Training Until All Pokemon Are Level 18")
+		Lib.log1time("Training Until All Pokemon Are Level " .. levelPokesTo .. ".")
 		return updateTargetArea(cascadeTraining1, "Encounter")
 	
 	--[[else
