@@ -186,7 +186,7 @@ function onBattleAction()
 
 	if isWildBattle() then
 
-		if Game.getTotalUsablePokemonCount(minLevel) < 1 or (Game.getTotalPokemonToLevelCount(levelPokesTo) < 1 or (Game.getTotalPokemonToLevelCount(levelPokesTo) == 1 and getPokemonHealthPercent(Game.getFirstPokemonToLevel(levelPokesTo)) < 30)) then
+		if Game.getTotalUsablePokemonCount(minLevel) < 1 or (Game.getTotalPokemonToLevelCount(levelPokesTo) < 1 or (Game.getTotalPokemonToLevelCount(levelPokesTo) == 1 and getPokemonHealthPercent(Game.getFirstPokemonToLevel(levelPokesTo)) < 20)) then
 			--[[if isPokemonUsable(getActivePokemonNumber()) then]]
 			return run() or attack() or sendAnyPokemon() or useAnyMove()
 			--[[else
