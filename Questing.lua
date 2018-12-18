@@ -8,11 +8,11 @@ local BoulderQuest = require "Pathfinder/Quests/BoulderQuest"
 local CascadeQuest = require "Pathfinder/Quests/CascadeQuest"
 
 
-mount = false
---local discover = true
+mount = true
+discover = true
 movesNotToForget = {"Dig", "Cut", "Surf", "Flash", "Rock Smash", "Fly", "False Swipe"}
-minutesToMove = 10
-starter = "Random" --"Bulbasaur","Charmander","Squirtle" or "Random"
+minutesToMove = math.random(10, 30)
+starter = "Random" --"Bulbasaur", "Charmander", "Squirtle" or "Random"
 fossil = "Random" 
 --dojo = "Random"
 
@@ -60,10 +60,15 @@ local area = nil
 function onStart()
 
 	if not hasBadge("Boulder Badge") then
+		minLevel = 4
+		levelPokesTo = 15
 		Lib.log1time("Current Quest: Boulder Badge")
 	elseif not hasBadge("Cascade Badge") then
+		minLevel = 8
+		levelPokesTo = 23
 		Lib.log1time("Current Quest: Cascade Badge")
 	end
+	
 	rand = 0 -- Used to represent each rectangle in area
 	tmpRand = 0 -- Used to make sure rand is different every time we call math.random
 	areaTimer = os.time()
@@ -117,7 +122,7 @@ local area = getAreaName()
 		if not pf.moveTo(area, areaList[rand]) then
 			return moveToWater()
 		end
-	elseif cellType == "ENCOUNTER" then
+	elseif cellType == "WILD" then
 		if not pf.moveTo(area, areaList[rand]) then
 			return moveToEncounterWild()
 		end
@@ -126,34 +131,6 @@ end
 
 function onPathAction()
 local area = getAreaName()
-
-	if Game.minTeamLevel() < 8 then
-		minLevel = 4
-		levelPokesTo = 8
-	elseif Game.minTeamLevel() >= 8 and Game.minTeamLevel() < 13 then
-		minLevel = 5
-		levelPokesTo = 13
-	elseif Game.minTeamLevel() >= 13 and Game.minTeamLevel() < 20 then
-		minLevel = 8
-		levelPokesTo = 20
-	end
-		
-	if Game.isSorted(levelPokesTo) then 
-		return true
-	end
-	
-	if Game.needPokecenter() then
-		Lib.log1time("Using Pokecenter")
-		return pf.useNearestPokecenter(area)
-	end
-	
-	if getMoney() > 4000 and getItemQuantity("Poké Ball") < 10 then
-		return pf.useNearestPokemart(area, "Poké Ball", 20)
-	elseif getMoney() > 2000 and getItemQuantity("Poké Ball") < 10 then
-		return pf.useNearestPokemart(area, "Poké Ball", 10)
-	elseif isShopOpen() then 
-	    return closeShop()
-	end
 	
 	if not hasBadge("Boulder Badge") then
 		return BoulderQuest.path()
@@ -165,14 +142,17 @@ end
 
 function onBattleAction()
 
-	if minLevel == nil or levelPokesTo == nil then
+	--[[if minLevel == nil or levelPokesTo == nil then
 		if not hasBadge("Boulder Badge") then
-			minLevel = 5
+			minLevel = 4
 			levelPokesTo = 15
+		elseif not hasBadge("Cascade Badge") then
+			minLevel = 8
+			levelPokesTo = 23
 		end
-	end
+	end]]
 
-	if isWildBattle() and (isOpponentShiny() or (not Table.isInTable(blacklist) and not isAlreadyCaught() and getOpponentLevel() >= 4 and getOpponentHealthPercent() <= 50)) then
+	if isWildBattle() and (isOpponentShiny() or ((getTeamSize() < 6 and not Table.isInTable(blacklist)) and not isAlreadyCaught() and getOpponentLevel() >= 4 and getOpponentHealthPercent() <= 50)) then
 
 		if isPokemonUsable(getActivePokemonNumber()) then
 			if useItem("Ultra Ball") or useItem("Great Ball") or useItem("Poké Ball") or useItem("Luxury Ball") then
@@ -219,34 +199,6 @@ function onBattleMessage(message)
 
 end
 
-function onDialogMessage(message)
-	--Boulder
-	if stringContains(message, "You should visit the Poké Center and Poké Mart! Both are useful places for aspiring trainers such as yourself.") then
-		oldMan = false
-	end
-	if (stringContains(message, "The Poké Mart, where you can buy items, is not far away. Go take a look!") or stringContains(message, "There you go, take care of them!")) and oldMan == false then
-		oldMan = true
-		carl = false
-	end
-	if (stringContains(message, "She can teach you something about Pokémon!") or stringContains(message, "How may I help you?")) and carl == false then
-		carl = true
-		dizzy = false
-	end
-	if stringContains(message, "If not, feel free to use the computers!") then
-		dizzy = true
-	end
-	if stringContains(message, "Have you already found Lara? Please, look for her!") then
-		lara = false
-	end
-	if stringContains(message, "Some Pokémon only appear rarely...") or stringContains(message, "Feel free to explore the rest of the forest as you like!") then
-		lara = true
-	end
-	if stringContains(message, "Go to the Cerulean City Gym and test your abilities!") then
-		Lib.log1time("Boulder Badge Obtained!")
-	end
-	--Cascade
-
-end
 
 function onSystemMessage(message)
 

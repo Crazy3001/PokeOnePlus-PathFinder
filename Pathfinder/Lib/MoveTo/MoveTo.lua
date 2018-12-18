@@ -168,6 +168,21 @@ local function getPlayerNode(map)
 	return map
 end
 
+local function getNpcArea(map, npcX, npcY)
+	local map = getMapName()
+	local npcInRectangle = Lib.inRectangle(npcX, npcY)
+	if mapAreas[map] then
+		for mapArea, locs in pairs(mapAreas[map]) do
+			for _, rect in ipairs(locs) do
+				if npcInRectangle(table.unpack(rect)) then
+					return mapArea
+				end
+			end
+		end
+		error("Pathfinder --> sub map could not be defined, map: " .. map .. "  x: " .. x .. "  y: " .. y)
+	end
+end
+
 -- create a new list replacing maps by all nodes corresponding to them
 local function mapsToNodes(mapList)
     local nodeList = {}
@@ -323,8 +338,12 @@ local function moveTo(map, dest)
 		return talkNpcWith("Emma's Pokéball")
 	elseif checkNpcWith("LostPokeball") then
 		return talkNpcWith("LostPokeball")
-	--elseif checkNpcWith("item") then
-	--	return talkNpcWith("item")
+	--[[elseif discover then
+		if checkNpcWith("item") then
+			if getPlayerNode(getMapName()) == getNpcArea(getMapName(), getNpcDataWith("item").x, getNpcDataWith("item").y) then
+				return talkNpcWith("item")
+			end
+		end]]
 	elseif destStore == table.concat(dest, " | ") then
 		return moveWithCalcPath()
 	else

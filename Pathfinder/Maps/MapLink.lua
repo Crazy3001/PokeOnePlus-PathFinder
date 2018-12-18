@@ -114,7 +114,7 @@ mapLink["Mt. Moon B2F_A"] = {["Mt. Moon B1F_A"] = {{27, 97}}}
 mapLink["Mt. Moon B2F_B"] = {["Mt. Moon B1F_B"] = {{39, 74}}}
 mapLink["Mt. Moon B2F_C"] = {["Mt. Moon B1F_C"] = {{35, 86}}, ["Mt. Moon B1F_D"] = {{11, 75}}}
 mapLink["Mt. Moon Pokémon Center"] = {["Route 3"] = {{66, 53, 67, 53}}}
-mapLink["Mt. Moon"] = {["Route 3"] = {{105, 49}}, ["Mt. Moon B1F_A"] = {{118, 27}}, ["Mt. Moon B1F_B"] = {{107, 25}}, ["Mt. Moon B1F_C"] = {{95, 16}}}
+mapLink["Mt. Moon"] = {["Route 3"] = {{101, 51}}, ["Mt. Moon B1F_A"] = {{118, 27}}, ["Mt. Moon B1F_B"] = {{107, 25}}, ["Mt. Moon B1F_C"] = {{95, 16}}}
 mapLink["Mt. Silver"] = {["Mt. Silver 1F_A"] = {{35, 17}}, ["Mt. Silver Pokémon Center"] = {{46, 23}}, ["Route 28_A"] = {{63, 24, 63, 25}, {63, 33, 63, 34}}}
 mapLink["Mt. Silver Lower Mountainside"] = {["Mt. Silver 1F_A"] = {{85, 64}}, ["Mt. Silver 1F_E"] = {{77, 40}}, ["Mt. Silver 1F_D"] = {{81, 55}}}
 mapLink["Mt. Silver Upper Mountainside_A"] = {["Mt. Silver 2F_A"] = {{84, 56}}, ["Mt. Silver 2F_B"] = {{105, 67}}, ["Mt. Silver 2F_C"] = {{105, 92}}}

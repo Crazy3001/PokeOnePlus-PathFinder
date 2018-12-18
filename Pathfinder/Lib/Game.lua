@@ -111,7 +111,7 @@ function Game.getFirstUsablePokemon(minLevel)
 			return i		
 		end
 	end
-	return 0
+	return false
 end
 
 function Game.getTotalUsablePokemonCount(minLevel)
