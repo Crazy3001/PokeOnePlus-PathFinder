@@ -12,10 +12,10 @@ local ThunderQuest = {}
 
 local area = nil
 
-thunderTraining1 = {}
+thunderTraining1 = {"Route 6", "Diglett's Cave", "Route 11"}
 thunderNpcList = {}
 
-function Quest.path()
+function ThunderQuest.path()
 local area = getAreaName()
 local map = getMapName()
 
@@ -46,11 +46,13 @@ local map = getMapName()
 		if isNpcVisible(thunderNpcList[npc]) then
 			if pf.mapName() == getNpcArea(map, getNpcData(thunderNpcList[npc]).x, getNpcData(thunderNpcList[npc]).y) then
 				if getNpcData(thunderNpcList[npc]).isBattler and getNpcData(thunderNpcList[npc]).canBattle then
+					pauseMessage = "Current Quest: Thunder Badge - Battling NPC's."
 					Lib.log1time("Battling NPC: " .. thunderNpcList[npc] .. ".")
 					return talkToNpc(thunderNpcList[npc])
 				end
 			else
 				if getNpcData(thunderNpcList[npc]).isBattler and getNpcData(thunderNpcList[npc]).canBattle then
+					pauseMessage = "Current Quest: Thunder Badge - Battling NPC's."				
 					Lib.log1time("Battling NPC: " .. thunderNpcList[npc] .. ".")
 					return pf.moveTo(area, getNpcArea(map, getNpcData(thunderNpcList[npc]).x, getNpcData(thunderNpcList[npc]).y))
 				end

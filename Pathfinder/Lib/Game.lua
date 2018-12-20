@@ -17,6 +17,40 @@ function Game.getPokemonNumberWithMove(move, joy) -- optional parameter happines
     return nil
 end
 
+function Game.hasPokemonWithMove(Move)
+	local hasPokemonWithMove = {}
+	hasPokemonWithMove["id"] = 0
+	hasPokemonWithMove["move"] = nil
+	local statusMoveList = {"glare", "stun spore", "thunder wave", "hypnosis", "lovely kiss", "sing", "sleep spore", "spore"}
+	for _,Move in pairs(statusMoveList) do
+		for i=1, getTeamSize(), 1 do
+			if hasMove(i, Move) then
+				hasPokemonWithMove["id"] = i
+				hasPokemonWithMove["move"] = Move
+				return hasPokemonWithMove, true
+			end
+		end
+	end
+	return false
+end
+
+function Game.hasUsablePokemonWithMove(Move)
+	local hasUsablePokemonWithMove = {}
+	hasUsablePokemonWithMove["id"] = 0
+	hasUsablePokemonWithMove["move"] = nil
+	local statusMoveList = {"glare", "stun spore", "thunder wave", "hypnosis", "lovely kiss", "sing", "sleep spore", "spore"}
+	for _,Move in pairs(statusMoveList) do
+		for i=1, getTeamSize(), 1 do
+			if hasMove(i, Move) and getRemainingPowerPoints(i, Move) >= 1 and isPokemonUsable(i) then
+				hasUsablePokemonWithMove["id"] = i
+				hasUsablePokemonWithMove["move"] = Move
+				return hasUsablePokemonWithMove, true
+			end
+		end
+	end	
+	return false
+end
+
 function Game.getPokemonIdWithItem(ItemName)	
 	for i=1, getTeamSize(), 1 do
 		if getPokemonHeldItem(i) == ItemName then

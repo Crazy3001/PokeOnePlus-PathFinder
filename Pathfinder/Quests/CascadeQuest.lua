@@ -48,16 +48,20 @@ local map = getMapName()
 
 	if moonstone == false then
 		if isNpcVisible(".moonstone") then
+			pauseMessage = "Current Quest: Cascade Badge - Going to get the Moonstone as part of a quest."
 			Lib.log1time("Getting Item: Moonstone")
 			return talkToNpc(".moonstone")
 		end
 	elseif kent == false then
+		pauseMessage = "Current Quest: Cascade Badge - Going to talk Robby as part of a quest."
 		Lib.log1time("Talking to NPC: Robby")
 		return talkToNpcOnCell(125, 81)		
 	elseif robby == false then
+		pauseMessage = "Current Quest: Cascade Badge - Going to talk Charles as part of a quest."
 		Lib.log1time("Talking to NPC: Charles")
 		return talkToNpcOnCell(142, 60)
 	elseif charles == false then
+		pauseMessage = "Current Quest: Cascade Badge - Going to talk Kent as part of a quest."
 		Lib.log1time("Talking to NPC: Kent")
 		return talkToNpcOnCell(131, 54)
 	end
@@ -66,11 +70,13 @@ local map = getMapName()
 		if isNpcVisible(cascadeNpcList[npc]) then
 			if pf.mapName() == getNpcArea(map, getNpcData(cascadeNpcList[npc]).x, getNpcData(cascadeNpcList[npc]).y) then
 				if getNpcData(cascadeNpcList[npc]).isBattler and getNpcData(cascadeNpcList[npc]).canBattle then
+					pauseMessage = "Current Quest: Cascade Badge - Battling NPC's."
 					Lib.log1time("Battling NPC: " .. cascadeNpcList[npc] .. ".")
 					return talkToNpc(cascadeNpcList[npc])
 				end
 			else
 				if getNpcData(cascadeNpcList[npc]).isBattler and getNpcData(cascadeNpcList[npc]).canBattle then
+					pauseMessage = "Current Quest: Cascade Badge - Battling NPC's."
 					Lib.log1time("Battling NPC: " .. cascadeNpcList[npc] .. ".")
 					return pf.moveTo(area, getNpcArea(map, getNpcData(cascadeNpcList[npc]).x, getNpcData(cascadeNpcList[npc]).y))
 				end
@@ -80,15 +86,18 @@ local map = getMapName()
 
 	if Game.minTeamLevel() < 18 then
 		levelPokesTo = 18
-		Lib.log1time("Training Until All Pokemon Are Level " .. levelPokesTo .. ".")
+		pauseMessage = "Current Quest: Cascade Badge - Training team until all pokemon are at least level 18."
+		Lib.log1time(pauseMessage)
 		return updateTargetArea(cascadeTraining1, "Wild")
 	
 	elseif Game.minTeamLevel() >= 18 and not hasItem("S.S. Ticket") then
 		if not pf.moveTo(area, "Sea Cottage") then
 			if isNpcOnCell(14,10) then
+				pauseMessage = "Current Quest: Cascade Badge - Going to talk to Bill and get the S.S. Ticket."
 				Lib.log1time("Talking to NPC: Bill")
 				return talkToNpcOnCell(14, 10)
 			else
+				pauseMessage = "Current Quest: Cascade Badge - Going to talk to Bill and get the S.S. Ticket."
 				Lib.log1time("Talking to NPC: Bill")
 				pushDialogAnswer("press blue button")
 				return talkToNpcOnCell(9, 10)
@@ -97,11 +106,13 @@ local map = getMapName()
 		
 	elseif Game.minTeamLevel() >= 18 and Game.minTeamLevel < 23 then
 		levelPokesTo = 23
-		Lib.log1time("Training Until All Pokemon Are Level " .. levelPokesTo .. ".")
+		pauseMessage = "Current Quest: Cascade Badge - Training team until all pokemon are at least level 23."
+		Lib.log1time(pauseMessage)
 		return updateTargetArea(cascadeTraining1, "Grass")
 		
 	elseif Game.minTeamLevel >= 23 then
-		Lib.log1time("Going To Second Gym!")
+		pauseMessage = "Current Quest: Boulder Badge - Going to Pewter Gym to battle all trainers and Brock to get the Boulder Badge."
+		Lib.log1time(pauseMessage)
 		if not pf.moveTo(area, "Cerulean Gym") then
 			return talkToNpcOnCell(51, 109)
 		end
@@ -133,9 +144,9 @@ function onDialogMessage(message)
 	end
 	if stringContains(message, "So, I suggest we share! Please choose one of them!") then
 		if fossil == "Random" then
-				return pushDialogAnswer(fossils[math.random(#fossils)])
-			else 
-				return pushDialogAnswer(fossil)
+			return pushDialogAnswer(fossils[math.random(#fossils)])
+		else 
+			return pushDialogAnswer(fossil)
 		end
 	end
 end

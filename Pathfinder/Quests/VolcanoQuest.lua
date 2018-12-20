@@ -46,11 +46,13 @@ local map = getMapName()
 		if isNpcVisible(volcanoNpcList[npc]) then
 			if pf.mapName() == getNpcArea(map, getNpcData(volcanoNpcList[npc]).x, getNpcData(volcanoNpcList[npc]).y) then
 				if getNpcData(volcanoNpcList[npc]).isBattler and getNpcData(volcanoNpcList[npc]).canBattle then
+					pauseMessage = "Current Quest: Volcano Badge - Battling NPC's."				
 					Lib.log1time("Battling NPC: " .. volcanoNpcList[npc] .. ".")
 					return talkToNpc(volcanoNpcList[npc])
 				end
 			else
 				if getNpcData(volcanoNpcList[npc]).isBattler and getNpcData(volcanoNpcList[npc]).canBattle then
+					pauseMessage = "Current Quest: Volcano Badge - Battling NPC's."				
 					Lib.log1time("Battling NPC: " .. volcanoNpcList[npc] .. ".")
 					return pf.moveTo(area, getNpcArea(map, getNpcData(volcanoNpcList[npc]).x, getNpcData(volcanoNpcList[npc]).y))
 				end

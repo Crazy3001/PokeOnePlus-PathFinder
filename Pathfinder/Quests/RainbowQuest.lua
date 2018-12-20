@@ -15,7 +15,7 @@ local area = nil
 rainbowTraining1 = {}
 rainbowNpcList = {}
 
-function Quest.path()
+function RainbowQuest.path()
 local area = getAreaName()
 local map = getMapName()
 
@@ -46,11 +46,13 @@ local map = getMapName()
 		if isNpcVisible(rainbowNpcList[npc]) then
 			if pf.mapName() == getNpcArea(map, getNpcData(rainbowNpcList[npc]).x, getNpcData(rainbowNpcList[npc]).y) then
 				if getNpcData(rainbowNpcList[npc]).isBattler and getNpcData(rainbowNpcList[npc]).canBattle then
+					pauseMessage = "Current Quest: Rainbow Badge - Battling NPC's."				
 					Lib.log1time("Battling NPC: " .. rainbowNpcList[npc] .. ".")
 					return talkToNpc(rainbowNpcList[npc])
 				end
 			else
 				if getNpcData(rainbowNpcList[npc]).isBattler and getNpcData(rainbowNpcList[npc]).canBattle then
+					pauseMessage = "Current Quest: Rainbow Badge - Battling NPC's."				
 					Lib.log1time("Battling NPC: " .. rainbowNpcList[npc] .. ".")
 					return pf.moveTo(area, getNpcArea(map, getNpcData(rainbowNpcList[npc]).x, getNpcData(rainbowNpcList[npc]).y))
 				end

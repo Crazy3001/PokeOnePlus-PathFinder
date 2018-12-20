@@ -46,11 +46,13 @@ local map = getMapName()
 		if isNpcVisible(marshNpcList[npc]) then
 			if pf.mapName() == getNpcArea(map, getNpcData(marshNpcList[npc]).x, getNpcData(marshNpcList[npc]).y) then
 				if getNpcData(marshNpcList[npc]).isBattler and getNpcData(marshNpcList[npc]).canBattle then
+					pauseMessage = "Current Quest: Marsh Badge - Battling NPC's."				
 					Lib.log1time("Battling NPC: " .. marshNpcList[npc] .. ".")
 					return talkToNpc(marshNpcList[npc])
 				end
 			else
 				if getNpcData(marshNpcList[npc]).isBattler and getNpcData(marshNpcList[npc]).canBattle then
+					pauseMessage = "Current Quest: Marsh Badge - Battling NPC's."				
 					Lib.log1time("Battling NPC: " .. marshNpcList[npc] .. ".")
 					return pf.moveTo(area, getNpcArea(map, getNpcData(marshNpcList[npc]).x, getNpcData(marshNpcList[npc]).y))
 				end

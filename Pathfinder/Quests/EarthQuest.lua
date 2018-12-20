@@ -46,11 +46,13 @@ local map = getMapName()
 		if isNpcVisible(earthNpcList[npc]) then
 			if pf.mapName() == getNpcArea(map, getNpcData(earthNpcList[npc]).x, getNpcData(earthNpcList[npc]).y) then
 				if getNpcData(earthNpcList[npc]).isBattler and getNpcData(earthNpcList[npc]).canBattle then
+					pauseMessage = "Current Quest: Earth Badge - Battling NPC's."				
 					Lib.log1time("Battling NPC: " .. earthNpcList[npc] .. ".")
 					return talkToNpc(earthNpcList[npc])
 				end
 			else
 				if getNpcData(earthNpcList[npc]).isBattler and getNpcData(earthNpcList[npc]).canBattle then
+					pauseMessage = "Current Quest: Earth Badge - Battling NPC's."				
 					Lib.log1time("Battling NPC: " .. earthNpcList[npc] .. ".")
 					return pf.moveTo(area, getNpcArea(map, getNpcData(earthNpcList[npc]).x, getNpcData(earthNpcList[npc]).y))
 				end

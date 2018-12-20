@@ -45,7 +45,8 @@ local map = getMapName()
 	end
 
 	if getTeamSize() == 0 then
-		Lib.log1time("Talking to NPC: Prof. Oak")
+		pauseMessage = "Current Quest: Boulder Badge - Going to talk to Prof. Oak to choose our first Pokemon!"
+		Lib.log1time(pauseMessage)
 		if not pf.moveTo(area, "Oak's Lab") then
 			if starter == "Random" then
 				pushDialogAnswer(starters[math.random(#starters)])
@@ -57,21 +58,25 @@ local map = getMapName()
 		end
 		
 	elseif oldMan == false then
+		pauseMessage = "Current Quest: Boulder Badge - Going to talk Nurse Joy at the Pokecenter as part of a quest."
 		Lib.log1time("Talking to NPC: Nurse Joy")
 		if not pf.moveTo(area, "Viridian Pokémon Center") then
 			return talkToNpcOnCell(9, 119)
 		end
 	elseif carl == false then
+		pauseMessage = "Current Quest: Boulder Badge - Going to talk Carl at the Pokemart as part of a quest."
 		Lib.log1time("Talking to NPC: Carl")
 		if not pf.moveTo(area, "Viridian Pokémon Mart") then
 			return talkToNpcOnCell(10, 68)
 		end
 	elseif dizzy == false then
+		pauseMessage = "Current Quest: Boulder Badge - Going to talk Dizzy at the Trainers School as part of a quest."
 		Lib.log1time("Talking to NPC: Dizzy")
 		if not pf.moveTo(area, "Trainers School") then
 			return talkToNpcOnCell(14, 8)
 		end
 	elseif lara == false then
+		pauseMessage = "Current Quest: Boulder Badge - Going to talk Lara in Viridian Forest as part of a quest."
 		Lib.log1time("Talking to NPC: Lara")
 		return talkToNpcOnCell(20, 52)
 	end
@@ -80,11 +85,13 @@ local map = getMapName()
 		if isNpcVisible(boulderNpcList[npc]) then
 			if pf.mapName() == getNpcArea(map, getNpcData(boulderNpcList[npc]).x, getNpcData(boulderNpcList[npc]).y) then
 				if getNpcData(boulderNpcList[npc]).isBattler and getNpcData(boulderNpcList[npc]).canBattle then
+					pauseMessage = "Current Quest: Boulder Badge - Battling NPC's."
 					Lib.log1time("Battling NPC: " .. boulderNpcList[npc] .. ".")
 					return talkToNpc(boulderNpcList[npc])
 				end
 			else
 				if getNpcData(boulderNpcList[npc]).isBattler and getNpcData(boulderNpcList[npc]).canBattle then
+					pauseMessage = "Current Quest: Boulder Badge - Battling NPC's."
 					Lib.log1time("Battling NPC: " .. boulderNpcList[npc] .. ".")
 					return pf.moveTo(area, getNpcArea(map, getNpcData(boulderNpcList[npc]).x, getNpcData(boulderNpcList[npc]).y))
 				end
@@ -94,16 +101,19 @@ local map = getMapName()
 		
 	if Game.minTeamLevel() < 8 then
 		levelPokesTo = 8
-		Lib.log1time("Training Until All Pokemon Are Level " .. levelPokesTo .. ".")
+		pauseMessage = "Current Quest: Boulder Badge - Training team until all pokemon are at least level 8."
+		Lib.log1time(pauseMessage)
 		return updateTargetArea(boulderTraining1, "Grass")
 		
 	elseif Game.minTeamLevel() >= 8 and Game.minTeamLevel() < 13 then
 		levelPokesTo = 13
-		Lib.log1time("Training Until All Pokemon Are Level " .. levelPokesTo .. ".")
+		pauseMessage = "Current Quest: Boulder Badge - Training team until all pokemon are at least level 13."
+		Lib.log1time(pauseMessage)
 		return updateTargetArea(boulderTraining2, "Grass")
 		
 	elseif Game.minTeamLevel() >= 13 then
-		Lib.log1time("Going To First Gym!")
+		pauseMessage = "Current Quest: Boulder Badge - Going to Pewter Gym to battle all trainers and Brock to get the Boulder Badge."
+		Lib.log1time(pauseMessage)
 		if not pf.moveTo(area, "Pewter Gym") then
 			talkToNpcOnCell(15,92)
 		end

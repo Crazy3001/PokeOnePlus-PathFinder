@@ -332,8 +332,11 @@ local function moveTo(map, dest)
 	playerNode = getPlayerNode(map)
 	dest = mapsToNodes(dest)
 	if mount and not isMounted() and not isSurfing() and isOutside() then
-		assert(useEquippedMount(), "Error using Mount.")
-		return true
+		if not useEquippedMount() then
+			Lib.log1time("No mount equipped.")
+			mount = false
+			return
+		end
 	elseif checkNpcWith("Emma's Pokéball") then
 		return talkNpcWith("Emma's Pokéball")
 	elseif checkNpcWith("LostPokeball") then

@@ -46,11 +46,13 @@ local map = getMapName()
 		if isNpcVisible(soulNpcList[npc]) then
 			if pf.mapName() == getNpcArea(map, getNpcData(soulNpcList[npc]).x, getNpcData(soulNpcList[npc]).y) then
 				if getNpcData(soulNpcList[npc]).isBattler and getNpcData(soulNpcList[npc]).canBattle then
+					pauseMessage = "Current Quest: Soul Badge - Battling NPC's."				
 					Lib.log1time("Battling NPC: " .. soulNpcList[npc] .. ".")
 					return talkToNpc(soulNpcList[npc])
 				end
 			else
 				if getNpcData(soulNpcList[npc]).isBattler and getNpcData(soulNpcList[npc]).canBattle then
+					pauseMessage = "Current Quest: Soul Badge - Battling NPC's."				
 					Lib.log1time("Battling NPC: " .. soulNpcList[npc] .. ".")
 					return pf.moveTo(area, getNpcArea(map, getNpcData(soulNpcList[npc]).x, getNpcData(soulNpcList[npc]).y))
 				end
